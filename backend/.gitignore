@@ -1,0 +1,10 @@
+node_modules
+
+.env
+
+src/database/migrations/*
+!src/database/migrations/.gitkeetp
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
