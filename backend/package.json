@@ -17,7 +17,12 @@
       "name": "Leonardo Scapinello",
       "url": "https://github.com/leonardoscapinello",
       "email": "leonardo.scapinello@outlook.com"
-    }
+    },
+    {
+			"name": "Daniel Nora",
+			"url": "https://github.com/danielnora",
+			"email": "46094608+danielnora@users.noreply.github.com"
+		}
   ],
   "dependencies": {
     "bcryptjs": "^2.4.3",
