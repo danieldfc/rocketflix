@@ -7,11 +7,13 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
-  "author": {
-    "name": "Daniel Felizardo",
-    "url": "https://github.com/DanielDavidDev"
-  },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Daniel Felizardo",
+      "url": "https://github.com/DanielDavidDev",
+      "email": "daniel.david772@gmail.com"
+    }
+  ],
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
