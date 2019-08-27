@@ -18,20 +18,19 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
 Para melhor exemplificar o projeto, será separado em tópicos, falando exclusivamente sobre, para manter a fluidez e facilidade, tendo um maior conforto para ambos, seja backend, ou frontend.
 
-````
-Nota:
 
-  É importante ressaltar que este projeto, não tem o objetivo de ir para a produção, caso você queira colocar, é necessário que você fale diretamente com a Rocketseat. Não nos responsabilizamos por nada que você faça fora do github. 
-````
+    Nota:
+
+      É importante ressaltar que este projeto, não tem o objetivo de ir para a produção, caso você queira colocar, é necessário que você fale diretamente com a Rocketseat. Não nos responsabilizamos por nada que você faça fora do github. 
 
 <hr />
 
 ## Tabela de conteúdo
 
-- [ferramentas](#ferramentas)
-- [Projeto](#projeto)
-  - [backend](#backend)
-  - [frontend](#frontend)
+- [Ferramentas](#ferramentas)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+  - [Avançadas](#avançadas)
 - [Contribuição](#contribuição)
 - [Licença](#licença)
 
@@ -39,35 +38,64 @@ Nota:
 
 ## Ferramentas
 
-As ferramentas que serão usadas e aplicadas durante o desenvolvimento
+As ferramentas que serão usadas e aplicadas durante o desenvolvimento, serão diversas e idependentes para cada visão.
 
 <hr />
-
-````
-src
-┣ app
-┃   ┗ models
-┃     ┗ User.js
-┣ config
-┃   ┗ database.js
-┗ database
-      ┣ migrations
-      ┗ index.js
-````
-
-Aqui você precisará entender como funciona o fluxo, porque este é o seu ponto de partida para começar a programar em Nodejs.
-
-<hr />
-
-## Projeto
 
 ### Backend
 
-    Em desenvolvimento.
+Primeiramente cada projeto, possui uma ierarquia de pastas e você deve seguir para não se perder durante o seu desenvolvimento.
 
-### frontend
+````
+src/
+┣ app/
+┃   ┗ models/
+┃     ┗ User.js
+┣ config
+┃   ┗ database.js
+┗ database/
+    ┣ migrations/
+    ┗ index.js
+````
+Aqui você precisará entender como funciona o fluxo, porque este é o seu ponto de partida para começar a programar em Nodejs.
 
-    Em desenvolvimento.
+A pasta **src** será o armazenador do código fonte, pois encapsulará toda a regra de negcio e não somente em um arquivo só. De início, você irá possuir um arquivo chamado de **src/app.js**, é onde você indicará o inicio, rotas e middlewares da aplicações. É importante ressaltar, que essa aplicação estará rodando na porta `3333`, para caso você esteja usando ela, em algum momento, sugiro parar todos os processos em execução sendo do software node, para não dar ninhum conflito.
+
+- o arquivo que se encontra no caminho `~/nodemon.json`, ele é responsável para configurar a dependência nodemon, que se você executar um arquivo javascript e sendo o mesmo path, ele automaticamente, troca o path para `sucrase-node`, deixando muito mais performático a inicialização do servidor.
+
+  - **app** - na pasta app, é onde é guardada a regra de negócio da sua aplicação, sendo assim, pode-se conter dentro da pasta: `controllers`, `models`, `middlewares` e entre outros.
+
+  - **config** - na pasta config, é onde se armazenado todo e qualquer tipo de configuração, seja ela do banco de dados, email, filas, entre outras.
+
+  - **database** - na pasta database, está sendo armazenado configurações de conexão entre models e as migrations do banco de dados, ou seja, para esse projeto está sendo usado o sequelize para gerenciar e o dialeto é o `postgresql`.
+
+Para configurar o sequelize, existe um arquivo chamado `.sequelizerc`, ele tem o objetivo de encontrar o caminho para o banco de dados, para os models, para as migrations e para os seeders!
+
+- O arquivo que se encontra em `~/src/config/database.js`, ele é responsável para configurar o banco de dados, dizer que dialeto, nome do banco de dados, username, senha e host.
+
+- o arquivo que se encontra no caminho `~/src/routes.js`, ele é responsável pelas rotas da aplicação, sendo assim muito importante para o processo de manipulação dos dados.
+
+Com isso você já pode sinta a necessidade de mais alterações nesta documentação, sinta-se a vontade para abrir uma issue e configurar. Presumo que você possa ser grande útil para nos ajudar a deixar ainda mais legível para outros programadores.
+
+<hr />
+
+### Frontend
+
+````
+src
+┣ components
+┃   ┗ Header
+┣ pages
+┃   ┣ _Layout
+┃   ┗ SignIn
+┣ routes
+┣ styles
+┃     ┗ User.js
+````
+
+    Ainda em desenvolvimento.
+
+<hr />
 
 ## Contribuição
 
