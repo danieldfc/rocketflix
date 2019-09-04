@@ -252,7 +252,6 @@ Para melhor configuração dessa ferramenta e integrar bem ao editor, você pode
 
 ```json
 {
-  ...
   "editor.formatOnSave": false,
 
   "eslint.autoFixOnSave": true,
@@ -269,8 +268,6 @@ Para melhor configuração dessa ferramenta e integrar bem ao editor, você pode
 }
 ```
 
-O spread operator foi indicado logo no começo, por você ter ainda outras configurações já modificadas, então, logo depois delas, poderá indicar o que foi colocado acima.
-
 ### Prettier
 
 Esta ferramenta se chama `prettier` e também possui uma [extenção](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), sendo de grande importância, estar instalando também, para que ele possa arrumar o seu código e assim ter uma integração com o eslint, tendo mais compatibilidades e metodologias aplicadas em seu projeto.
@@ -279,12 +276,9 @@ Ele tem uma configuração no vscode que você poderá adicionar também:
 
 ```json
 {
-  ...
   "prettier.eslintIntegration": true,
 }
 ```
-
-Da mesma forma que na sessão [eslint](#eslint), o spread operator foi indicado, porque você pode ter outras configurações neste documento, por isso você incluirá, depois delas.
 
 ### Editorconfig
 
