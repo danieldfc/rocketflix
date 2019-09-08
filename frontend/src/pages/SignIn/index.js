@@ -4,5 +4,5 @@ import React from 'react';
 
 export default function SignIn() {
   /* SignIn para não retorna uma página branca sem identificação */
-  return <><spam>SignIn</spam></>;
+  
 }
