@@ -328,7 +328,7 @@ Contribuições são o que fazem a comunidade open source um lugar incrível par
 5. Faça o Push da Branch (`git push origin feature/FeatureIncrivel`)
 6. Abra uma Pull Request
 
-[Para Mais, veja também ...](https://github.com/DanielDavidDev/rocketflix/wiki)
+[Para mais, veja também nossa wiki clicando aqui! ...](https://github.com/DanielDavidDev/rocketflix/wiki)
 
 # Licença
 
