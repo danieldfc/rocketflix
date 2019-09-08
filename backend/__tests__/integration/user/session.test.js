@@ -1,15 +1,16 @@
 import request from 'supertest';
+
 import app from '../../../src/app';
 
-import factory from '../../factories';
 import truncate from '../../util/truncate';
+import factory from '../../factories';
 
-describe('Session', () => {
+describe('User session', () => {
   beforeEach(async () => {
     await truncate();
   });
 
-  it('should be able to session', async () => {
+  it('should be able JWT token for sessions of user', async () => {
     const user = await factory.create('User');
 
     const response = await request(app)
@@ -22,7 +23,7 @@ describe('Session', () => {
     expect(response.body).toHaveProperty('token');
   });
 
-  it('should be able to session without email', async () => {
+  it('should not be able JWT token for sessions of user without email', async () => {
     const user = await factory.create('User');
 
     const response = await request(app)
@@ -34,7 +35,7 @@ describe('Session', () => {
     expect(response.status).toBe(400);
   });
 
-  it('should be able to session without password', async () => {
+  it('should not be able JWT token for sessions of user without password', async () => {
     const user = await factory.create('User');
 
     const response = await request(app)
@@ -46,9 +47,7 @@ describe('Session', () => {
     expect(response.status).toBe(400);
   });
 
-  it('should be able to session without campos', async () => {
-    await factory.create('User');
-
+  it('should not be able JWT token for sessions of user without data', async () => {
     const response = await request(app)
       .post('/sessions')
       .send();
@@ -56,7 +55,7 @@ describe('Session', () => {
     expect(response.status).toBe(400);
   });
 
-  it('should be able to session without email validated', async () => {
+  it('should be able not permited created session without user', async () => {
     const user = await factory.attrs('User', {
       email: 'daniel@test.com',
     });
@@ -75,9 +74,8 @@ describe('Session', () => {
     expect(response.status).toBe(400);
   });
 
-  it('should be able to session without password validated', async () => {
+  it('should be able not permited created session with password invalid', async () => {
     const user = await factory.attrs('User', {
-      email: 'daniel@test.com',
       password: '123456',
     });
 
@@ -92,6 +90,6 @@ describe('Session', () => {
         password: '123123',
       });
 
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(400);
   });
 });

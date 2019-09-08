@@ -1,8 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-
-import authConfig from '../../config/auth';
 
 class User extends Model {
   static init(sequelize) {
@@ -28,12 +25,6 @@ class User extends Model {
 
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
-  }
-
-  generateToken() {
-    return jwt.sign({ id: this.id }, authConfig.secret, {
-      expiresIn: authConfig.expiresIn,
-    });
   }
 }
 
