@@ -233,7 +233,7 @@ $ yarn sequelize db:migrade:undo
 Para deletar uma migration de cada vez, de acordo com a criação, agora para deletar todas as migrations de uma vez do banco é preciso executar esse comando:
 
 ```shell
-$ yarn sequelize
+$ yarn sequelize db:migrate:undo:all
 ```
 Fazendo isso, você poderá dar início a sua jornada de desenvolvimento. Se caso você sofrer com algum erro, ou não conseguir colocar uma certa configuração em seu projeto, sugiro abrir uma [issue](https://github.com/DanielDavidDev/rocketflix/issues), para que se caso outros desenvolvedores sofrerem com este mesmo problema, sejá mais fácil encontrar a solução.
 
