@@ -44,19 +44,20 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
     `GET /categorias http://localhost:3333/categorias` - Lista categorias
 
-    `GET /categorias/videos http://localhost:3333/:nameCategoria/videos` - Lista vídeos daquela categoria
+    `GET /:nameCategoria/videos http://localhost:3333/:nameCategoria/videos` - Lista vídeos daquela categoria
 
     `POST /categorias http://localhost:3333/categorias` - Cria categoria, se provedor
 
-    `PUT /categorias/:id http://localhost:3333/categorias/:nameCategoria` - Atualiza uma categoria, se provedor
+    `PUT /categorias/:id http://localhost:3333/categorias/:id` - Atualiza uma categoria, se provedor
 
-    `DELETE /categorias/:id http://localhost:3333/categorias/:nameCategoria` - Deleta uma categoria, se provedor
+    `DELETE /categorias/:id http://localhost:3333/categorias/:id` - Deleta uma categoria, se provedor
 
     `GET /notifications http://localhost:3333/notifications` - Lista notificações do usuário
 
     `PUT /notifications/:id http://localhost:3333/notifications/:id` - Atualiza para lido uma notificação
 
-**Frontend** - Ele é responsável para mostrar de maneira visível ao usuário dados que vem do backend, logo é necessário estar totalmente seguro, para que não possa mostrar de maneira visível, dados que possam ser senvíveis do usuário.
+**Frontend** - Ele é responsável para mostrar de maneira visível ao usuário dados que vem do backend, logo é necessário estar totalmente seguro, para que não possa mostrar, dados que possam ser senvíveis do usuário.
+**Frontend** - Ele é responsável para mostrar de maneira visível ao usuário dados que vem do backend, logo é necessário estar totalmente seguro, para que não possa mostrar, dados que possam ser senvíveis do usuário.
 
   - **rotas** - Assim como no backend, será necessário uma navegação entre rotas, mas no frontend são páginas. Então, de forma bem breve essas são as rotas que terão no projeto frontend e assim como foi dito no backend, você poderá adicionar uma nova rota e adicionar aqui neste readme.
 
@@ -70,12 +71,17 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
     `http://localhost:3000/dashboard` - Aqui é onde terá os vídeos listados por categoria, é bom colocar em algum local, a lista de todas as categorias também, para o usuário poder ver separadamente pada uma delas. É importante ressaltar que será implementado notificações, então terá que ter um botão em algum local, para que possa fornecer esses dados.
     
+    `http://localhost:3000/journey/categorias/` - Cria categoria e já pode adicionar vídeos.
+
+    `http://localhost:3000/journey/categorias/:nameCategoria` - Edita categoria.
+
     `http://localhost:3000/journey/:nameCategoria/` - Visualizar todos os vídeos de determinada categoria.
 
     `http://localhost:3000/journey/:nameCategoria/videos/:titleVideo` - Aqui é onde será exibido algum vídeo, mas terá que ter um apontador para o próximo vídeo, se caso ele quiser continuar assistindo.
-    
-    `http://localhost:3000/account` - Aqui será mostrado dados do usuário para ser atualizado ou não.
 
+    `http://localhost:3000/journey/videos/` - Visualizar todos os vídeos dos mais recentes, aos mais antigos.
+    
+    `http://localhost:3000/account` - Aqui é a página do usuário, caso ele queira modificar seus dados.
 
 ````
 Nota:
@@ -227,7 +233,7 @@ $ yarn sequelize migration:create --name=create-users
 Depois do sinal de igual é onde você colocará o nome ideal para a tabela no banco de dados ou adicionar um campo a mais. Logo é importante estar em inglês a criação e edição das migrations.
 
 ```shell
-$ yarn sequelize db:migrade:undo
+$ yarn sequelize db:migrate:undo
 ```
 
 Para deletar uma migration de cada vez, de acordo com a criação, agora para deletar todas as migrations de uma vez do banco é preciso executar esse comando:
@@ -417,7 +423,7 @@ Contribuições são o que fazem a comunidade open source um lugar incrível par
 5. Faça o Push da Branch (`git push origin feature/FeatureIncrivel`)
 6. Abra uma Pull Request
 
-[Para mais, veja também nossa wiki clicando aqui! ...](https://github.com/DanielDavidDev/rocketflix/wiki)
+[Para mais, veja também nossa wiki clicando aqui!](https://github.com/DanielDavidDev/rocketflix/wiki)
 
 # Licença
 
