@@ -131,17 +131,17 @@ Aqui você precisará entender como funciona o fluxo, porque este é o seu ponto
 A pasta **src** será o armazenador do código fonte, pois encapsulará toda a regra de negócio e não somente em um arquivo só arquivo. De início, você irá possuir um arquivo chamado de **src/app.js**, onde foi indicado o inicio das rotas, middlewares e a captação de exeções da aplicação. É importante ressaltar, que a mesma estará rodando na porta `3333`, para caso você esteja usando ela, em algum momento, sugiro parar todos os processos em execução sendo do software node, para não dar nenhum conflito.
 
 **Windows:**
-```sh
+```shell
 $ taskkill /f /im node.exe
 ```
 
 **Linux:**
-```sh
+```shell
 $ killall -9 node
 ```
 
 **Mac:**
-```sh
+```shell
 $ killall -9 node
 ```
 
@@ -178,7 +178,7 @@ Neste projeto está sendo utilizado o gerenciador de pacotes [yarn](https://yarn
 
 Depois que instalar o gerenciador, execute este comando na pasta do projeto `backend`:
 
-```sh
+```shell
 $ yarn
 ```
 
@@ -186,7 +186,7 @@ Agora que instalado as dependências, você criará um container no docker, porq
 
 Com o docker instalado na sua máquina, para criar um container que será usado para este projeto, será feito o seguinte comando: 
 
-```sh
+```shell
 $ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
@@ -208,24 +208,33 @@ Clicando sobre o botão `Create Database`, você pode perceber que já tenho um 
 
 Voltando para o projeto, com um terminal aberto, na pasta `backend` do projeto, você poderá rodar o seguinte comando:
 
-```sh
+```shell
 $ yarn sequelize db:migrate
 ```
 
 Agora com tudo configurado, você poderá inicializar o desenvolvimento e rodar o servidor localmente, executando:
 
-```sh 
+```shell
 $ yarn dev
 ```
 
 Caso queira criar uma issue específica, para ficar mais fácil deixarei o comando de retirá e adicionar issues ao projeto.
 
-```sh
+```shell
 $ yarn sequelize migration:create --name=create-users
 ```
 
 Depois do sinal de igual é onde você colocará o nome ideal para a tabela no banco de dados ou adicionar um campo a mais. Logo é importante estar em inglês a criação e edição das migrations.
 
+```shell
+$ yarn sequelize db:migrade:undo
+```
+
+Para deletar uma migration de cada vez, de acordo com a criação, agora para deletar todas as migrations de uma vez do banco é preciso executar esse comando:
+
+```shell
+$ yarn sequelize
+```
 Fazendo isso, você poderá dar início a sua jornada de desenvolvimento. Se caso você sofrer com algum erro, ou não conseguir colocar uma certa configuração em seu projeto, sugiro abrir uma [issue](https://github.com/DanielDavidDev/rocketflix/issues), para que se caso outros desenvolvedores sofrerem com este mesmo problema, sejá mais fácil encontrar a solução.
 
 Se você sentir a necessidade, ou queira modificar este arquivo de `README.md`, você poderá fazer isso caso seja uma boa forma de ser documentado. Presumo que você possa ser muito útil para nos ajudar a deixar ainda mais legível essa documentação para outros desenvolvedores.
