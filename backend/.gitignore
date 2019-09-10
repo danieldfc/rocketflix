@@ -1,5 +1,8 @@
 node_modules
 
+tmp/uploads/*
+!tmp/uploads/.gitkeep
+
 .env
 
 npm-debug.log*
