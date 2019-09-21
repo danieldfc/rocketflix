@@ -1,0 +1,29 @@
+{
+  "name": "rocketflix",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "repository": "git@github.com:DanielDavidDev/rocketflix.git",
+  "author": "Daniel Felizardo <daniel.david772@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "packages": "run-s packages:*",
+    "packages:lint": "lerna run lint",
+    "packages:test": "lerna run test",
+    "packages:build": "lerna run build"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "backend": "1.0.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "lerna": "^3.16.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2"
+  }
+}
