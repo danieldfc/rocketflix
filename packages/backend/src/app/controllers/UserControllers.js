@@ -1,6 +1,8 @@
 import User from '../models/User';
 import File from '../models/File';
 
+import Mail from '../../lib/Mail';
+
 class UserController {
   async store(req, res) {
     const { email } = req.body;
@@ -12,6 +14,15 @@ class UserController {
     }
 
     const { id, name, provider } = await User.create(req.body);
+
+    await Mail.sendMail({
+      to: `${name} <${email}>`,
+      subject: 'Bem vindo a Rocketflix',
+      template: 'welcome',
+      context: {
+        name,
+      },
+    });
 
     return res.json({
       id,

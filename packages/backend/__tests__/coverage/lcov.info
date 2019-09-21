@@ -1,5 +1,5 @@
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/controllers/FileController.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/controllers/FileController.js
 FN:1,_interopRequireDefault
 FN:4,(anonymous_1)
 FNF:2
@@ -21,7 +21,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/controllers/SessionController.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/controllers/SessionController.js
 FN:1,_interopRequireDefault
 FN:8,(anonymous_1)
 FNF:2
@@ -54,7 +54,7 @@ BRF:8
 BRH:8
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/controllers/UserControllers.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/controllers/UserControllers.js
 FN:1,_interopRequireDefault
 FN:5,(anonymous_1)
 FN:24,(anonymous_2)
@@ -103,7 +103,7 @@ BRF:14
 BRH:12
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/middlewares/auth.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/middlewares/auth.js
 FN:1,_interopRequireDefault
 FN:6,(anonymous_1)
 FNF:2
@@ -135,7 +135,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/models/File.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/models/File.js
 FN:1,_interopRequireDefault
 FN:4,(anonymous_1)
 FN:11,(anonymous_2)
@@ -159,7 +159,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/models/User.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/models/User.js
 FN:1,_interopRequireDefault
 FN:5,(anonymous_1)
 FN:17,(anonymous_2)
@@ -194,7 +194,7 @@ BRF:6
 BRH:4
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/validators/SessionStore.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/validators/SessionStore.js
 FN:1,_interopRequireWildcard
 FN:3,(anonymous_1)
 FNF:2
@@ -222,7 +222,7 @@ BRF:8
 BRH:3
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/validators/UserStore.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/validators/UserStore.js
 FN:1,_interopRequireWildcard
 FN:3,(anonymous_1)
 FNF:2
@@ -250,7 +250,7 @@ BRF:8
 BRH:3
 end_of_record
 TN:
-SF:/home/danielfelizardo/Projetos/Repos/rocketflix/backend/src/app/validators/UserUpdate.js
+SF:/home/danielfelizardo/Projetos/Repos/rocketflix/packages/backend/src/app/validators/UserUpdate.js
 FN:1,_interopRequireWildcard
 FN:3,(anonymous_1)
 FN:11,(anonymous_2)
