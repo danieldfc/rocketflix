@@ -1,8 +1,8 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "dependencies": {
-    "backend": "1.0.0",
+    "backend": "^2.0.0",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
