@@ -13,7 +13,8 @@
     "packages:build": "lerna run build"
   },
   "workspaces": [
-    "packages/*"
+    "backend",
+    "frontend"
   ],
   "devDependencies": {
     "backend": "1.0.0",
