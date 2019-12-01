@@ -11,77 +11,49 @@ describe('User session', () => {
   });
 
   it('should be able JWT token for sessions of user', async () => {
-    const user = await factory.create('User');
-
-    const response = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
-    expect(response.body).toHaveProperty('token');
-  });
-
-  it('should not be able JWT token for sessions of user without email', async () => {
-    const user = await factory.create('User');
-
-    const response = await request(app)
-      .post('/sessions')
-      .send({
-        password: user.password,
-      });
-
-    expect(response.status).toBe(400);
-  });
-
-  it('should not be able JWT token for sessions of user without password', async () => {
-    const user = await factory.create('User');
-
-    const response = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-      });
-
-    expect(response.status).toBe(400);
-  });
-
-  it('should not be able JWT token for sessions of user without data', async () => {
-    const response = await request(app)
-      .post('/sessions')
-      .send();
-
-    expect(response.status).toBe(400);
-  });
-
-  it('should be able not permited created session without user', async () => {
-    const user = await factory.attrs('User', {
-      email: 'daniel@test.com',
-    });
-
-    await request(app)
-      .post('/users')
-      .send(user);
-
-    const response = await request(app)
-      .post('/sessions')
-      .send({
-        email: 'daniel1@test.com',
-        password: user.password,
-      });
-
-    expect(response.status).toBe(400);
-  });
-
-  it('should be able not permited created session with password invalid', async () => {
-    const user = await factory.attrs('User', {
+    await factory.create('User', {
+      email: 'test@test.com',
       password: '123456',
     });
 
-    await request(app)
-      .post('/users')
-      .send(user);
+    const response = await request(app)
+      .post('/sessions')
+      .send({
+        email: 'test@test.com',
+        password: '123456',
+      });
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('token');
+  });
+
+  it('should not be able JWT token for sessions of user without data', async () => {
+    const response = await request(app).post('/sessions');
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Validation failure' },
+    });
+  });
+
+  it('should be able not permited created session with user not found', async () => {
+    const response = await request(app)
+      .post('/sessions')
+      .send({
+        email: 'test@test.com',
+        password: '123456',
+      });
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'User not found' },
+    });
+  });
+
+  it('should be able not permited created session with password invalid', async () => {
+    const user = await factory.create('User', {
+      password: '123456',
+    });
 
     const response = await request(app)
       .post('/sessions')
@@ -90,6 +62,9 @@ describe('User session', () => {
         password: '123123',
       });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Password does not match' },
+    });
   });
 });

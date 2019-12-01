@@ -1,15 +1,15 @@
 import { Router } from 'express';
 import multer from 'multer';
 
-import UserController from './app/controllers/UserControllers';
+import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 
 import authMiddleware from './app/middlewares/auth';
 
-import ValidatorsUserStore from './app/validators/UserStore';
-import ValidatorsUserUpdate from './app/validators/UserUpdate';
-import ValidatorsSessionStore from './app/validators/SessionStore';
+import ValidatorsUserStore from './app/validators/User/Store';
+import ValidatorsUserUpdate from './app/validators/User/Update';
+import ValidatorsSessionStore from './app/validators/Session/Store';
 
 import multerConfig from './config/multer';
 

@@ -44,7 +44,7 @@ module.exports = {
     'global-require': 'off',
     'react-native/no-raw-text': 'off',
     'no-underscore-dangle': 'off',
-    'no-console': ['error', { allow: ['tron'] }],
+    'no-console': ['off', { allow: ['tron'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-props-no-spreading': 'off',

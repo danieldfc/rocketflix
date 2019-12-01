@@ -11,22 +11,12 @@ describe('User update', () => {
 
   it('should be able to update', async () => {
     const user = await factory.create('User', {
-      email: 'daniel@test.com',
       password: '123456',
     });
 
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`)
       .send({
         email: user.email,
         oldPassword: user.password,
@@ -34,133 +24,64 @@ describe('User update', () => {
         confirmPassword: '123123',
       });
 
+    expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id');
   });
 
   it('should not be able with verify of duplicated email', async () => {
-    const user = await factory.create('User', {
+    await factory.create('User', {
       email: 'daniel@test.com',
-      password: '123456',
     });
 
-    const userTwo = await factory.create('User', {
+    const user = await factory.create('User', {
       email: 'daniel2@test.com',
-      password: '123456',
     });
-
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
 
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`)
       .send({
-        email: userTwo.email,
+        email: 'daniel@test.com',
         oldPassword: user.password,
         password: '123123',
         confirmPassword: '123123',
       });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'User already exists' },
+    });
   });
 
-  it('should not be able with oldPassword ', async () => {
+  it('should not be able with oldPassword invalid', async () => {
     const user = await factory.create('User', {
-      email: 'daniel@test.com',
+      email: 'test@test.com',
       password: '123456',
     });
 
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`)
       .send({
-        email: user.email,
+        name: user.name,
+        email: 'test@test.com',
         oldPassword: '1234567',
         password: '123123',
         confirmPassword: '123123',
       });
 
-    expect(response.status).toBe(400);
-  });
-
-  it('should not be able validate without password', async () => {
-    const user = await factory.create('User');
-
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
-    const response = await request(app)
-      .put('/users')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
-        email: user.email,
-        oldPassword: user.password,
-        confirmPassword: '1234567',
-      });
-
-    expect(response.status).toBe(400);
-  });
-
-  it('should not be able validate without confirmPassword', async () => {
-    const user = await factory.create('User');
-
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
-    const response = await request(app)
-      .put('/users')
-      .set('Authorization', `Bearer ${token}`)
-      .send({
-        email: user.email,
-        oldPassword: user.password,
-        password: '1234567',
-      });
-
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Password does not match' },
+    });
   });
 
   it('should not be able validate without fields', async () => {
     const user = await factory.create('User');
 
-    const {
-      body: { token },
-    } = await request(app)
-      .post('/sessions')
-      .send({
-        email: user.email,
-        password: user.password,
-      });
-
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`)
       .send({
         email: user.email,
         oldPassword: '',
@@ -168,23 +89,29 @@ describe('User update', () => {
         confirmPassword: '',
       });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Validation failure' },
+    });
   });
 
   it('should not be able permited invalid token JWT', async () => {
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer`)
-      .send();
+      .set('Authorization', `Bearer 123`);
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Token invalid' },
+    });
   });
 
   it('should not be able permited without token JWT', async () => {
-    const response = await request(app)
-      .put('/users')
-      .send();
+    const response = await request(app).put('/users');
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject({
+      error: { message: 'Token not found' },
+    });
   });
 });

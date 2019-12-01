@@ -1,7 +1,9 @@
 import User from '../models/User';
 import File from '../models/File';
 
-import Mail from '../../lib/Mail';
+import Queue from '../../lib/Queue';
+
+import WelcomeMail from '../jobs/WelcomeMail';
 
 class UserController {
   async store(req, res) {
@@ -10,21 +12,19 @@ class UserController {
     const userExists = await User.findOne({ where: { email } });
 
     if (userExists) {
-      return res.status(400).json({ error: 'User already exists' });
+      return res
+        .status(401)
+        .json({ error: { message: 'User already exists' } });
     }
 
     const { id, name, provider } = await User.create(req.body);
 
-    await Mail.sendMail({
-      to: `${name} <${email}>`,
-      subject: 'Bem vindo a Rocketflix',
-      template: 'welcome',
-      context: {
-        name,
-      },
+    await Queue.add(WelcomeMail.key, {
+      name,
+      email,
     });
 
-    return res.json({
+    return res.status(200).json({
       id,
       name,
       email,
@@ -41,12 +41,16 @@ class UserController {
       const userExists = await User.findOne({ wherer: { email } });
 
       if (userExists) {
-        return res.status(400).json({ error: 'User already exists.' });
+        return res
+          .status(401)
+          .json({ error: { message: 'User already exists' } });
       }
     }
 
     if (oldPassword && !(await user.checkPassword(oldPassword))) {
-      return res.status(400).json({ error: 'Password does not match.' });
+      return res
+        .status(401)
+        .json({ error: { message: 'Password does not match' } });
     }
 
     await user.update(req.body);

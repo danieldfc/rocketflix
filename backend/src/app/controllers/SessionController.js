@@ -1,7 +1,3 @@
-import jwt from 'jsonwebtoken';
-
-import authConfig from '../../config/auth';
-
 import User from '../models/User';
 
 class SessionController {
@@ -11,25 +7,25 @@ class SessionController {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return res.status(400).json({ error: 'User not found.' });
+      return res.status(401).json({ error: { message: 'User not found' } });
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.status(400).json({ error: 'Password does not match' });
+      return res
+        .status(401)
+        .json({ error: { message: 'Password does not match' } });
     }
 
     const { id, name, provider } = user;
 
-    return res.json({
+    return res.status(200).json({
       user: {
         id,
         name,
         email,
         provider,
       },
-      token: jwt.sign({ id }, authConfig.secret, {
-        expiresIn: authConfig.expiresIn,
-      }),
+      token: user.generateToken(),
     });
   }
 }

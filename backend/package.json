@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
+    "queue": "nodemon src/queue.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "pretest": "NODE_ENV=test sequelize db:migrate",
     "test": "NODE_ENV=test jest",
@@ -29,10 +30,13 @@
     }
   ],
   "dependencies": {
+    "@sentry/node": "5.9.0",
     "bcryptjs": "^2.4.3",
+    "bee-queue": "^1.2.2",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "express-handlebars": "^3.1.0",
     "frontend": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
