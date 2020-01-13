@@ -1,4 +1,5 @@
 import Bee from 'bee-queue';
+
 import redisConfig from '../config/redis';
 
 import WelcomeMail from '../app/jobs/WelcomeMail';

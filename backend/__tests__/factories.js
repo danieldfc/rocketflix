@@ -1,5 +1,5 @@
-import faker from 'faker';
 import factory from 'factory-girl';
+import faker from 'faker';
 
 import User from '../src/app/models/User';
 

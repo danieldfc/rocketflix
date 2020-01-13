@@ -1,7 +1,6 @@
 {
   "name": "rocketflix",
   "version": "1.0.0",
-  "main": "index.js",
   "private": true,
   "repository": "git@github.com:DanielDavidDev/rocketflix.git",
   "author": "Daniel Felizardo <daniel.david772@gmail.com>",
@@ -14,14 +13,26 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run test"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
-  "workspaces": [
-    "*"
-  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "workspaces": {
+    "packages": [
+      "backend",
+      "frontend"
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "backend": "2.0.0",
+    "commitizen": "^4.0.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.3.0",

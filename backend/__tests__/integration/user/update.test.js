@@ -1,6 +1,6 @@
 import request from 'supertest';
-import app from '../../../src/app';
 
+import app from '../../../src/app';
 import factory from '../../factories';
 import truncate from '../../util/truncate';
 
@@ -89,10 +89,7 @@ describe('User update', () => {
         confirmPassword: '',
       });
 
-    expect(response.status).toBe(401);
-    expect(response.body).toMatchObject({
-      error: { message: 'Validation failure' },
-    });
+    expect(response.status).toBe(403);
   });
 
   it('should not be able permited invalid token JWT', async () => {

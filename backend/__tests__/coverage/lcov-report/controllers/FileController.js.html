@@ -1,5 +1,7 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Code coverage report for controllers/FileController.js</title>
     <meta charset="utf-8" />
@@ -12,40 +14,48 @@
         }
     </style>
 </head>
+    
 <body>
 <div class='wrapper'>
-  <div class='pad1'>
-    <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">controllers</a> FileController.js
-    </h1>
-    <div class='clearfix'>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/2</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
-        <span class="quiet">Lines</span>
-        <span class='fraction'>5/5</span>
-      </div>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">controllers</a> FileController.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">62.5% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>5/8</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">75% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>3/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">50% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/2</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">40% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>2/5</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
     </div>
-    <p class="quiet">
-      Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
-    </p>
-  </div>
-  <div class='status-line high'></div>
-<pre><table class="coverage">
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
 <a name='L3'></a><a href='#L3'>3</a>
@@ -62,56 +72,56 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import File from '../models/File';<span class="branch-1 cbranch-no" title="branch not covered" ></span>
 &nbsp;
 class FileController {
-  async store(req, res) {
-    const { originalname: name, filename: path } = req.file;
+<span class="fstat-no" title="function not covered" >  as</span>ync store(req, res) {
+    const { originalname: name, filename: path } = <span class="cstat-no" title="statement not covered" >req.file;</span>
 &nbsp;
-    const file = await File.create({
+    const file = <span class="cstat-no" title="statement not covered" >await File.create({</span>
       name,
       path,
     });
 &nbsp;
-    return res.status(200).json(file);
+<span class="cstat-no" title="statement not covered" >    return res.status(200).json(file);</span>
   }
 }
 &nbsp;
 export default new FileController();
-&nbsp;</pre></td></tr>
-</table></pre>
-<div class='push'></div><!-- for sticky footer -->
-</div><!-- /wrapper -->
-<div class='footer quiet pad2 space-top1 center small'>
-  Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Dec 01 2019 10:22:06 GMT-0300 (Brasilia Standard Time)
-</div>
-</div>
-<script src="../prettify.js"></script>
-<script>
-window.onload = function () {
-        if (typeof prettyPrint === 'function') {
-            prettyPrint();
-        }
-};
-</script>
-<script src="../sorter.js"></script>
-<script src="../block-navigation.js"></script>
-</body>
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Mon Jan 13 2020 02:42:07 GMT-0300 (Brasilia Standard Time)
+            </div>
+        </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
 </html>
+    

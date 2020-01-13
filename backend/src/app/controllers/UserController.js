@@ -1,5 +1,5 @@
-import User from '../models/User';
 import File from '../models/File';
+import User from '../models/User';
 
 import Queue from '../../lib/Queue';
 
@@ -13,7 +13,7 @@ class UserController {
 
     if (userExists) {
       return res
-        .status(401)
+        .status(400)
         .json({ error: { message: 'User already exists' } });
     }
 

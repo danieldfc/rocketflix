@@ -1,4 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

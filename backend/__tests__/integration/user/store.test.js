@@ -1,7 +1,6 @@
 import request from 'supertest';
 
 import app from '../../../src/app';
-
 import factory from '../../factories';
 import truncate from '../../util/truncate';
 
@@ -32,7 +31,7 @@ describe('User store', () => {
       .post('/users')
       .send(user);
 
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(400);
     expect(response.body).toMatchObject({
       error: { message: 'User already exists' },
     });
@@ -41,9 +40,6 @@ describe('User store', () => {
   it('should not be able schema validate without fields', async () => {
     const response = await request(app).post('/users');
 
-    expect(response.status).toBe(401);
-    expect(response.body).toMatchObject({
-      error: { message: 'Validation failure' },
-    });
+    expect(response.status).toBe(403);
   });
 });
