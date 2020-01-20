@@ -5,12 +5,15 @@ import multer from 'multer';
 import FileController from './app/controllers/FileController';
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
+import VideoController from './app/controllers/VideoController';
 
 import authMiddleware from './app/middlewares/auth';
+import checkFileMiddleware from './app/middlewares/checkFile';
 
 import ValidatorsSessionStore from './app/validators/Session/Store';
 import ValidatorsUserStore from './app/validators/User/Store';
 import ValidatorsUserUpdate from './app/validators/User/Update';
+import ValidatorsVideoStore from './app/validators/Video/Store';
 
 import multerConfig from './config/multer';
 
@@ -25,5 +28,15 @@ routes.use(authMiddleware);
 
 routes.put('/users', ValidatorsUserUpdate, UserController.update);
 routes.post('/files', upload.single('file'), FileController.store);
+
+routes.post(
+  '/videos',
+  upload.single('file'),
+  checkFileMiddleware,
+  ValidatorsVideoStore,
+  VideoController.store
+);
+
+routes.get('/videos', VideoController.index);
 
 export default routes;

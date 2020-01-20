@@ -1,0 +1,24 @@
+import { object, string, number } from 'yup';
+
+export default async (req, res, next) => {
+  try {
+    const schema = object().shape({
+      title: string().required(),
+      description: string().required(),
+      miniatura_id: number()
+        .positive()
+        .integer(),
+    });
+
+    await schema.validate(req.body, { abortEarly: false });
+
+    return next();
+  } catch (err) {
+    return res.status(403).json({
+      error: {
+        title: 'Validation failure',
+        message: err.inner.map(mes => mes.message),
+      },
+    });
+  }
+};

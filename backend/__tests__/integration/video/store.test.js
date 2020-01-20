@@ -4,25 +4,48 @@ import app from '../../../src/app';
 import factory from '../../factories';
 import truncate from '../../util/truncate';
 
-describe('User update', () => {
+describe('Video store', () => {
   beforeEach(async () => {
     await truncate();
   });
 
-  xit('should be able to update', async () => {
-    const user = await factory.create('User', {
-      password: '123456',
+  it('should be able to create new video from user', async () => {
+    const user = await factory.create('User');
+    const file = await factory.create('File');
+    const video = await factory.attrs('Video', {
+      owner_id: user.id,
+      miniatura_id: file.id,
     });
 
     const response = await request(app)
-      .put('/users')
+      .post('/videos')
       .set('Authorization', `Bearer ${user.generateToken()}`)
-      .send({
-        email: user.email,
-        oldPassword: user.password,
-        password: '123123',
-        confirmPassword: '123123',
+      .send(video);
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id');
+  });
+
+  it('should be able to create a new video from user without miniatura_id, but with file', async () => {
+    const user = await factory.create('User');
+    const video = await factory.attrs('Video', {
+      owner_id: user.id,
+      miniatura_id: 1,
+    });
+
+    const response = await request(app)
+      .post('/videos')
+      .set('Authorization', `Bearer ${user.generateToken()}`)
+      .field('originalname', 'my awesome avatar')
+      .field('filename', 'avatar')
+      .field('title', `${video.title}`)
+      .field('description', `${video.description}`)
+      .attach('file', '__tests__/fixtures/profile.png', {
+        filename: 'avatar',
+        contentType: 'application/x-www-form-urlencoded',
       });
+
+    console.log(response.body);
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id');
@@ -76,25 +99,19 @@ describe('User update', () => {
     });
   });
 
-  xit('should not be able validate without fields', async () => {
+  it('should not be able validate without fields', async () => {
     const user = await factory.create('User');
 
     const response = await request(app)
-      .put('/users')
-      .set('Authorization', `Bearer ${user.generateToken()}`)
-      .send({
-        email: user.email,
-        oldPassword: '',
-        password: '',
-        confirmPassword: '',
-      });
+      .post('/videos')
+      .set('Authorization', `Bearer ${user.generateToken()}`);
 
     expect(response.status).toBe(403);
   });
 
-  xit('should not be able permited invalid token JWT', async () => {
+  it('should not be able permited invalid token JWT', async () => {
     const response = await request(app)
-      .put('/users')
+      .post('/videos')
       .set('Authorization', `Bearer 123`);
 
     expect(response.status).toBe(401);
@@ -103,8 +120,8 @@ describe('User update', () => {
     });
   });
 
-  xit('should not be able permited without token JWT', async () => {
-    const response = await request(app).put('/users');
+  it('should not be able permited without token JWT', async () => {
+    const response = await request(app).post('/videos');
 
     expect(response.status).toBe(401);
     expect(response.body).toMatchObject({
