@@ -55,11 +55,10 @@ class VideoController {
     const { id } = await Video.create({
       ...req.body,
       owner_id: req.userId,
-      miniatura_id,
+      miniatura_id: Number(miniatura_id),
     });
 
-    const { description, file, user, url } = await Video.findOne({
-      where: { id, owner_id: req.userId, miniatura_id },
+    const { description, url, user, file } = await Video.findByPk(id, {
       include: [
         {
           model: File,

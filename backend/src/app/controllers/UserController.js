@@ -24,7 +24,7 @@ class UserController {
       email,
     });
 
-    return res.status(200).json({
+    return res.json({
       id,
       name,
       email,

@@ -5,6 +5,18 @@
   "repository": "git@github.com:DanielDavidDev/rocketflix.git",
   "author": "Daniel Felizardo <daniel.david772@gmail.com>",
   "license": "MIT",
+  "contributors": [
+    {
+      "name": "Leonardo Scapinello",
+      "url": "https://github.com/leonardoscapinello",
+      "email": "leonardo.scapinello@outlook.com"
+    },
+    {
+      "name": "Daniel Nora",
+      "url": "https://github.com/danielnora",
+      "email": "46094608+danielnora@users.noreply.github.com"
+    }
+  ],
   "scripts": {
     "packages": "run-s packages:*",
     "packages:lint": "lerna run lint",

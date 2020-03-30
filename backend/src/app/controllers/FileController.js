@@ -9,7 +9,7 @@ class FileController {
       path,
     });
 
-    return res.status(200).json(file);
+    return res.json(file);
   }
 }
 

@@ -4,6 +4,7 @@ import express from 'express';
 
 import * as Sentry from '@sentry/node';
 import cors from 'cors';
+import morgan from 'morgan';
 import { resolve } from 'path';
 import Youch from 'youch';
 
@@ -29,6 +30,7 @@ class App {
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(cors());
+    this.server.use(morgan('dev'));
     this.server.use(express.json());
     this.server.use(
       '/files',
@@ -49,7 +51,6 @@ class App {
           .status(500)
           .json({ error: { message: 'Internal server error.' } });
       }
-      console.log(errors);
       return res.status(500).json(errors);
     });
   }
