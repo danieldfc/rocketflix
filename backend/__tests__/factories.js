@@ -1,4 +1,4 @@
-import factory from 'factory-girl';
+import { factory } from 'factory-girl';
 import faker from 'faker';
 
 import File from '../src/app/models/File';
@@ -9,7 +9,6 @@ factory.define('User', User, {
   name: faker.name.findName(),
   email: faker.internet.email(),
   password: faker.internet.password(),
-  provider: true,
 });
 
 factory.define('Video', Video, {

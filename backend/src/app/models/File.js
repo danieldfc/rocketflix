@@ -1,13 +1,13 @@
-import Sequelize, { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
-class File extends Model {
+export default class File extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
-        path: Sequelize.STRING,
+        name: DataTypes.STRING,
+        path: DataTypes.STRING,
         url: {
-          type: Sequelize.VIRTUAL,
+          type: DataTypes.VIRTUAL,
           get() {
             return `${process.env.APP_URL}/files/${this.path}`;
           },
@@ -19,5 +19,3 @@ class File extends Model {
     return this;
   }
 }
-
-export default File;

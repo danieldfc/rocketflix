@@ -17,9 +17,9 @@ class UserController {
         .json({ error: { message: 'User already exists' } });
     }
 
-    const { id, name, provider } = await User.create(req.body);
+    const { id, name } = await User.create(req.body);
 
-    await Queue.add(WelcomeMail.key, {
+    Queue.add(WelcomeMail.key, {
       name,
       email,
     });
@@ -28,7 +28,6 @@ class UserController {
       id,
       name,
       email,
-      provider,
     });
   }
 
@@ -55,7 +54,7 @@ class UserController {
 
     await user.update(req.body);
 
-    const { id, name, provider, avatar } = await User.findByPk(req.userId, {
+    const { id, name, avatar } = await User.findByPk(req.userId, {
       include: [
         {
           model: File,
@@ -69,7 +68,6 @@ class UserController {
       id,
       name,
       email,
-      provider,
       avatar,
     });
   }

@@ -1,12 +1,12 @@
-import Sequelize, { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
-class Video extends Model {
+export default class Video extends Model {
   static init(sequelize) {
     super.init(
       {
-        title: Sequelize.STRING,
-        description: Sequelize.STRING,
-        url: Sequelize.STRING,
+        title: DataTypes.STRING,
+        description: DataTypes.STRING,
+        url: DataTypes.STRING,
       },
       { sequelize }
     );
@@ -19,5 +19,3 @@ class Video extends Model {
     this.belongsTo(models.File, { foreignKey: 'miniatura_id', as: 'file' });
   }
 }
-
-export default Video;

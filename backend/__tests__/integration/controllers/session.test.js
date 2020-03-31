@@ -4,21 +4,19 @@ import app from '../../../src/app';
 import factory from '../../factories';
 import truncate from '../../util/truncate';
 
-describe('User session', () => {
+describe('Session store', () => {
   beforeEach(async () => {
     await truncate();
   });
 
   it('should be able JWT token for sessions of user', async () => {
-    const user = await factory.create('User', {
-      password: '123456',
-    });
+    const user = await factory.create('User');
 
     const response = await request(app)
       .post('/sessions')
       .send({
         email: user.email,
-        password: '123456',
+        password: user.password,
       });
 
     expect(response.status).toBe(200);
@@ -31,11 +29,7 @@ describe('User session', () => {
     expect(response.status).toBe(403);
     expect(response.body).toEqual({
       error: expect.objectContaining({
-        title: 'Validation failure',
-        message: expect.arrayContaining([
-          expect.stringContaining('email is a required field'),
-          expect.stringContaining('password is a required field'),
-        ]),
+        message: expect.stringContaining('Validation failure'),
       }),
     });
   });
@@ -50,7 +44,7 @@ describe('User session', () => {
 
     expect(response.status).toBe(404);
     expect(response.body).toMatchObject({
-      error: { message: 'User not found' },
+      error: { message: expect.stringContaining('User not found') },
     });
   });
 
@@ -68,7 +62,7 @@ describe('User session', () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toMatchObject({
-      error: { message: 'Password does not match' },
+      error: { message: expect.stringContaining('Password does not match') },
     });
   });
 });

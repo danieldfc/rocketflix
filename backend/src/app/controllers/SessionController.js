@@ -16,14 +16,13 @@ class SessionController {
         .json({ error: { message: 'Password does not match' } });
     }
 
-    const { id, name, provider } = user;
+    const { id, name } = user;
 
     return res.json({
       user: {
         id,
         name,
         email,
-        provider,
       },
       token: user.generateToken(),
     });

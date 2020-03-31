@@ -6,7 +6,7 @@ import Video from '../models/Video';
 
 class VideoController {
   async index(req, res) {
-    const { page = 1, title } = req.query;
+    const { page = 1, title = '' } = req.query;
 
     const videos = await Video.findAll({
       where: {
@@ -44,12 +44,6 @@ class VideoController {
       return res
         .status(400)
         .json({ error: { message: 'Title already exist' } });
-    }
-
-    const checkUser = await User.findByPk(req.userId);
-
-    if (!checkUser) {
-      return res.status(404).json({ error: { message: 'User not found' } });
     }
 
     const { id } = await Video.create({

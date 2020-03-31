@@ -1,8 +1,67 @@
 import request from 'supertest';
 
+import Queue from '../../../src/lib/Queue';
+
+import WelcomeMail from '../../../src/app/jobs/WelcomeMail';
+
 import app from '../../../src/app';
 import factory from '../../factories';
 import truncate from '../../util/truncate';
+
+describe('User store', () => {
+  beforeEach(async () => {
+    await truncate();
+  });
+
+  it('should be able to register', async () => {
+    const user = await factory.attrs('User');
+
+    jest.spyOn(Queue, 'add').mockImplementation(() => {});
+
+    const response = await request(app)
+      .post('/users')
+      .send(user);
+
+    expect(Queue.add).toHaveBeenCalledWith(
+      expect.stringContaining(WelcomeMail.key),
+      expect.objectContaining({
+        name: expect.stringContaining(user.name),
+        email: expect.stringContaining(user.email),
+      })
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty('id');
+  });
+
+  it('should not be able to register with duplicated email', async () => {
+    const user = await factory.attrs('User');
+
+    await request(app)
+      .post('/users')
+      .send(user);
+
+    const response = await request(app)
+      .post('/users')
+      .send(user);
+
+    expect(response.status).toBe(400);
+    expect(response.body).toMatchObject({
+      error: { message: 'User already exists' },
+    });
+  });
+
+  it('should not be able schema validate without fields', async () => {
+    const response = await request(app).post('/users');
+
+    expect(response.status).toBe(403);
+    expect(response.body).toEqual({
+      error: expect.objectContaining({
+        message: 'Validation failure',
+      }),
+    });
+  });
+});
 
 describe('User update', () => {
   beforeEach(async () => {
@@ -113,10 +172,7 @@ describe('User update', () => {
     expect(response.status).toBe(403);
     expect(response.body).toEqual({
       error: expect.objectContaining({
-        title: 'Validation failure',
-        message: expect.arrayContaining([
-          expect.stringContaining('password is a required field'),
-        ]),
+        message: 'Validation failure',
       }),
     });
   });
@@ -139,12 +195,7 @@ describe('User update', () => {
     expect(response.status).toBe(403);
     expect(response.body).toEqual({
       error: expect.objectContaining({
-        title: 'Validation failure',
-        message: expect.arrayContaining([
-          expect.stringContaining(
-            'confirmPassword must be one of the following values: Ref(password)'
-          ),
-        ]),
+        message: 'Validation failure',
       }),
     });
   });
@@ -166,10 +217,7 @@ describe('User update', () => {
     expect(response.status).toBe(403);
     expect(response.body).toEqual({
       error: expect.objectContaining({
-        title: 'Validation failure',
-        message: expect.arrayContaining([
-          expect.stringContaining('confirmPassword is a required field'),
-        ]),
+        message: 'Validation failure',
       }),
     });
   });
