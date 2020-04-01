@@ -102,22 +102,21 @@ Nota:
 
 ## :scroll: Tabela de conteúdo
 
-- [RocketFlix - Rocketseat](#rocketflix---rocketseat)
-  - [:rocket: Visão geral](#rocket-vis%c3%a3o-geral)
-  - [:scroll: Tabela de conteúdo](#tabela-de-conte%c3%bado)
-  - [:wrench: Ferramentas](#ferramentas)
-    - [Backend](#backend)
-    - [Introdução em Backend](#introdu%c3%a7%c3%a3o-em-backend)
-    - [Desenvolvimento em Backend](#desenvolvimento-em-backend)
-    - [Frontend](#frontend)
-    - [Introdução em Frontend](#introdu%c3%a7%c3%a3o-em-frontend)
-    - [Desenvolvimento em Frontend](#desenvolvimento-em-frontend)
-  - [:fire: Avançadas](#avan%c3%a7adas)
-    - [Eslint](#eslint)
-    - [Prettier](#prettier)
-    - [Editorconfig](#editorconfig)
-  - [:star: Contribuição](#contribui%c3%a7%c3%a3o)
-- [:clipboard: Licença](#licen%c3%a7a)
+- [:rocket: Visão geral](#rocket-visão-geral)
+- [:scroll: Tabela de conteúdo](#scroll-tabela-de-conteúdo)
+- [:wrench: Ferramentas](#wrench-ferramentas)
+  - [Backend](#backend)
+  - [Introdução em Backend](#introdução-em-backend)
+  - [Desenvolvimento em Backend](#desenvolvimento-em-backend)
+  - [Frontend](#frontend)
+  - [Introdução em Frontend](#introdução-em-frontend)
+  - [Desenvolvimento em Frontend](#desenvolvimento-em-frontend)
+- [:fire: Avançadas](#fire-avançadas)
+  - [Eslint](#eslint)
+  - [Prettier](#prettier)
+  - [Editorconfig](#editorconfig)
+- [:star: Contribuição](#star-contribuição)
+- [:clipboard: Licença](#clipboard-licença)
 
 <hr />
 
