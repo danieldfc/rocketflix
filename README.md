@@ -10,7 +10,7 @@ Este repositório tem o objetivo de criar uma plataforma de videos, em Node.Js e
 
 <hr />
 
-## Visão geral
+## :rocket: Visão geral
 
 Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores e é para isso que existe a comunidade. Foi pensado exclusivamente para construirmos juntos um ambiente bem parecido com o aplicativo Netflix, com funcionalidades de videos lançados no momento, playlists, notificações, testes automatizados e muitas outras coisas que você poderá aplicar durante o seu desenvolvimento.
 
@@ -33,13 +33,13 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
     `GET /users http://localhost:3333/users` - Lista usuários, se for provedor.
 
     `PUT /users http://localhost:3333/users` - Atualiza o usuário logado
-   
+
     `GET /videos http://localhost:3333/videos` - Lista todos os vídeos
 
     `POST /videos http://localhost:3333/videos` - Cria vídeo, se provedor
 
     `PUT /videos/:id http://localhost:3333/videos/:id` - Atualiza um vídeo, se provedor
-    
+
     `DELETE /videos/:id http://localhost:3333/videos/:id` - Deleta um vídeo, se provedor
 
     `GET /categorias http://localhost:3333/categorias` - Lista categorias
@@ -70,7 +70,7 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
     - Rotas que precisa estar autenticado
 
     `http://localhost:3000/dashboard` - Aqui é onde terá os vídeos listados por categoria, é bom colocar em algum local, a lista de todas as categorias também, para o usuário poder ver separadamente pada uma delas. É importante ressaltar que será implementado notificações, então terá que ter um botão em algum local, para que possa fornecer esses dados.
-    
+
     `http://localhost:3000/journey/categorias/` - Cria categoria e já pode adicionar vídeos.
 
     `http://localhost:3000/journey/categorias/:nameCategoria` - Edita categoria.
@@ -80,13 +80,13 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
     `http://localhost:3000/journey/:nameCategoria/videos/:titleVideo` - Aqui é onde será exibido algum vídeo, mas terá que ter um apontador para o próximo vídeo, se caso ele quiser continuar assistindo.
 
     `http://localhost:3000/journey/videos/` - Visualizar todos os vídeos dos mais recentes, aos mais antigos.
-    
+
     `http://localhost:3000/account` - Aqui é a página do usuário, caso ele queira modificar seus dados.
 
 ````
 Nota:
 
-  É importante ressaltar que este projeto, não tem o objetivo de ir para a produção, caso você queira colocar, é necessário que você fale diretamente com a Rocketseat. Não nos responsabilizamos por nada que você faça. 
+  É importante ressaltar que este projeto, não tem o objetivo de ir para a produção, caso você queira colocar, é necessário que você fale diretamente com a Rocketseat. Não nos responsabilizamos por nada que você faça.
 ````
 
 <hr />
@@ -190,7 +190,7 @@ $ yarn
 
 Agora que instalado as dependências, você criará um container no docker, porque foi pensado nisso como forma de aprendizado, caso não possua o [docker](https://docs.docker.com/) instalado em sua maquina, será necessário estar instalado, pois você precisará criar um container assim como foi pensado anteriormente pelo gerenciamento deste projeto.
 
-Com o docker instalado na sua máquina, para criar um container que será usado para este projeto, será feito o seguinte comando: 
+Com o docker instalado na sua máquina, para criar um container que será usado para este projeto, será feito o seguinte comando:
 
 ```shell
 $ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
@@ -323,7 +323,7 @@ Mas antes de inicializar o container e a api será preciso indicar algumas confi
 
 Logo após a edição do arquivo colocando as suas configurações da aplicação, você poderá inicializar o container do docker e a api:
 
-```sh 
+```sh
 $ docker start database && yarn dev
 ```
 
