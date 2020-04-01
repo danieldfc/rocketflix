@@ -1,12 +1,10 @@
-# RocketFlix - [Rocketseat](https://www.github.com/Rocketseat)
+# :rocket: RocketFlix - [Rocketseat](https://www.github.com/Rocketseat)
 
 <br/>
 
-<h3 align="center" style="font-weight: bold">
-Este repositório tem o objetivo de criar uma plataforma de videos, em Node.Js e ReactJs, para a empresa ! 🚀
-</h3>
-
-<br />
+<p align="center" style="font-weight: bold; font-size: 24px">
+Este repositório tem o objetivo de criar uma plataforma de videos, em Node.Js e ReactJs, para a empresa! 🚀
+</p>
 
 <hr />
 
@@ -14,74 +12,85 @@ Este repositório tem o objetivo de criar uma plataforma de videos, em Node.Js e
 
 Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores e é para isso que existe a comunidade. Foi pensado exclusivamente para construirmos juntos um ambiente bem parecido com o aplicativo Netflix, com funcionalidades de videos lançados no momento, playlists, notificações, testes automatizados e muitas outras coisas que você poderá aplicar durante o seu desenvolvimento.
 
-**Backend** - Ele será responsável de entregar rotas de acesso ao frontend, e se caso já foi desenvolvido, não esquenta, este repositório é público e sempre precisa de melhorias, com certeza é uma boa você estar visualizando de forma geral, para poder entender e saber onde pode melhorar.
+:construction: **Backend** - Ele será responsável de entregar rotas de acesso ao frontend, e se caso já foi desenvolvido, não esquenta, este repositório é público e sempre precisa de melhorias, com certeza é uma boa você estar visualizando de forma geral, para poder entender e saber onde pode melhorar.
 
-  - **rotas** - Agora,será mostrado para você as rotas que serão e que já foram feitas neste projeto, peço para que todos que sentirem a necessidade de estar modificando ou incluindo alguma rota, peço para que assim possa documentar.
+  - :vertical_traffic_light: **rotas** - Agora,será mostrado para você as rotas que serão e que já foram feitas neste projeto, peço para que todos que sentirem a necessidade de estar modificando ou incluindo alguma rota, peço para que assim possa documentar.
 
-    - Rotas que não precisa estar autorizado:
+    - [x] `POST http://localhost:3333/users` - Cria um novo usuário
 
-    `GET / http://localhost:3333` - Boas vindas
+    - [x] `POST http://localhost:3333/sessions` - Cria uma nova sessão para o usuário
 
-    `POST /users http://localhost:3333/users` - Cria um novo usuário
+    **Rotas que precisa estar autenticado**
 
-    `POST /sessions http://localhost:3333/sessions` - Cria uma nova sessão para o usuário
+    - :person_with_blond_hair: Users
 
-    - Rotas que precisa estar autenticado
+      - [x] `PUT http://localhost:3333/users` - Atualiza o usuário logado
 
-    `POST /files http://localhost:3333/files` - Inclue arquivos de imagem para avatar e vídeos
+    - :framed_picture: Files
 
-    `GET /users http://localhost:3333/users` - Lista usuários, se for provedor.
+      - [x] `POST http://localhost:3333/files` - Inclue arquivos de imagem para avatar e vídeos
 
-    `PUT /users http://localhost:3333/users` - Atualiza o usuário logado
+    - :movie_camera: Videos
 
-    `GET /videos http://localhost:3333/videos` - Lista todos os vídeos
+      - [x] `GET http://localhost:3333/videos` - Lista todos os vídeos
 
-    `POST /videos http://localhost:3333/videos` - Cria vídeo, se provedor
+      - [x] `POST http://localhost:3333/videos` - Cria um vídeo
 
-    `PUT /videos/:id http://localhost:3333/videos/:id` - Atualiza um vídeo, se provedor
+      - [ ] `PUT http://localhost:3333/videos/:id` - Atualiza um vídeo
 
-    `DELETE /videos/:id http://localhost:3333/videos/:id` - Deleta um vídeo, se provedor
+      - [ ] `DELETE http://localhost:3333/videos/:id` - Deleta um vídeo
 
-    `GET /categorias http://localhost:3333/categorias` - Lista categorias
+    - :memo: Tags
 
-    `GET /:nameCategoria/videos http://localhost:3333/:nameCategoria/videos` - Lista vídeos daquela categoria
+      - [ ] `GET http://localhost:3333/tags` - Lista tags
 
-    `POST /categorias http://localhost:3333/categorias` - Cria categoria, se provedor
+      - [ ] `GET http://localhost:3333/tags/:name_tag/videos` - Lista vídeos daquela tag
 
-    `PUT /categorias/:id http://localhost:3333/categorias/:id` - Atualiza uma categoria, se provedor
+      - [ ] `POST http://localhost:3333/tags` - Cria tag
 
-    `DELETE /categorias/:id http://localhost:3333/categorias/:id` - Deleta uma categoria, se provedor
+      - [ ] `PUT http://localhost:3333/tags/:id` - Atualiza uma tag
 
-    `GET /notifications http://localhost:3333/notifications` - Lista notificações do usuário
+      - [ ] `DELETE http://localhost:3333/tags/:id` - Deleta uma tag
 
-    `PUT /notifications/:id http://localhost:3333/notifications/:id` - Atualiza para lido uma notificação
+    - :pushpin: Notificação
 
-**Frontend** - Ele é responsável para mostrar de maneira visível ao usuário dados que vem do backend, logo é necessário estar totalmente seguro, para que não possa mostrar, dados que possam ser senvíveis do usuário.
-**Frontend** - Ele é responsável para mostrar de maneira visível ao usuário dados que vem do backend, logo é necessário estar totalmente seguro, para que não possa mostrar, dados que possam ser senvíveis do usuário.
+      - [ ] `GET http://localhost:3333/notifications` - Lista notificações
 
-  - **rotas** - Assim como no backend, será necessário uma navegação entre rotas, mas no frontend são páginas. Então, de forma bem breve essas são as rotas que terão no projeto frontend e assim como foi dito no backend, você poderá adicionar uma nova rota e adicionar aqui neste readme.
+      - [ ] `PUT http://localhost:3333/notifications/:id` - Atualiza para lido uma notificação
 
-    - Rotas que não precisa estar autenticado
+:cookie: **Frontend** - Ele é responsável para mostrar de maneira visível ao usuário, dados que vem do backend. Logo é necessário estar totalmente seguro, para que não possa mostrar dados senvíveis do usuário.
 
-    `http://localhost:3000/` - A rota raiz será o login do usuário.
+  - :vertical_traffic_light: **rotas** - Assim como no backend, será mostrado a navegação entre rotas. Então, de forma bem breve essas são as rotas que terão no projeto `frontend` e assim como foi dito no `backend`, você poderá adicionar uma nova rota e adicionar aqui neste readme.
 
-    `http://localhost:3000/register` - Como o próprio nome diz vai registrar um novo usuário.
+    - [ ] `http://localhost:3000/` - Login do usuário.
 
-    - Rotas que precisa estar autenticado
+    - [ ] `http://localhost:3000/register` - Registrar um novo usuário.
 
-    `http://localhost:3000/dashboard` - Aqui é onde terá os vídeos listados por categoria, é bom colocar em algum local, a lista de todas as categorias também, para o usuário poder ver separadamente pada uma delas. É importante ressaltar que será implementado notificações, então terá que ter um botão em algum local, para que possa fornecer esses dados.
+    **Rotas que precisa estar autenticado**
 
-    `http://localhost:3000/journey/categorias/` - Cria categoria e já pode adicionar vídeos.
+      - [ ] `http://localhost:3000/dashboard` - Aqui é onde terá os vídeos listados aleatoriamente, ou seja, o usuário visualizará todos os vídeos independente da tag, logo ele poderá adicionar. É bom colocar a lista de todas as tags, para o usuário poder ver separadamente cada uma delas. É importante ressaltar, que será implementado notificações, então terá que ter um botão em algum local, para que possa fornecer esses dados.
 
-    `http://localhost:3000/journey/categorias/:nameCategoria` - Edita categoria.
+      - [ ] `http://localhost:3000/account` - Aqui é a página do usuário, caso ele queira modificar seus dados.
 
-    `http://localhost:3000/journey/:nameCategoria/` - Visualizar todos os vídeos de determinada categoria.
+      - :clapper: Videos
 
-    `http://localhost:3000/journey/:nameCategoria/videos/:titleVideo` - Aqui é onde será exibido algum vídeo, mas terá que ter um apontador para o próximo vídeo, se caso ele quiser continuar assistindo.
+        - [ ] `http://localhost:3000/journey/videos/` - Visualizar todos os vídeos dos mais recentes, aos mais antigos.
 
-    `http://localhost:3000/journey/videos/` - Visualizar todos os vídeos dos mais recentes, aos mais antigos.
+      - :pencil: Tags
 
-    `http://localhost:3000/account` - Aqui é a página do usuário, caso ele queira modificar seus dados.
+        - [ ] `http://localhost:3000/journey/:nameTag/videos` - Listar vídeos dessa tag
+
+        - [ ] `http://localhost:3000/journey/:nameTag/videos/:titleVideo` - Exibe um vídeo
+
+      - :cd: Playlists
+
+        - [ ] `http://localhost:3000/jorney/playlists` - Visualiza todas as playlists
+
+        - [ ] `http://localhost:3000/jorney/playlists/:namePlaylist` - Visualiza uma playlist específica
+
+        - [ ] `http://localhost:3000/jorney/playlists/new` - Cria uma nova playlist
+
+        - [ ] `http://localhost:3000/jorney/playlists/:namePlaylist/edit` - Edita uma playlist específica
 
 ````
 Nota:
@@ -91,25 +100,28 @@ Nota:
 
 <hr />
 
-## Tabela de conteúdo
+## :scroll: Tabela de conteúdo
 
-- [Ferramentas](#ferramentas)
-  - [Backend](#backend)
-    - [Introdução](#introdução-em-backend)
-    - [Desenvolvimento](#Desenvolvimento-em-backend)
-  - [Frontend](#frontend)
-    - [Introdução](#introdução-em-frontend)
-    - [Desenvolvimento](#Desenvolvimento-em-frontend)
-  - [Avançadas](#avançadas)
+- [RocketFlix - Rocketseat](#rocketflix---rocketseat)
+  - [:rocket: Visão geral](#rocket-vis%c3%a3o-geral)
+  - [:scroll: Tabela de conteúdo](#tabela-de-conte%c3%bado)
+  - [:wrench: Ferramentas](#ferramentas)
+    - [Backend](#backend)
+    - [Introdução em Backend](#introdu%c3%a7%c3%a3o-em-backend)
+    - [Desenvolvimento em Backend](#desenvolvimento-em-backend)
+    - [Frontend](#frontend)
+    - [Introdução em Frontend](#introdu%c3%a7%c3%a3o-em-frontend)
+    - [Desenvolvimento em Frontend](#desenvolvimento-em-frontend)
+  - [:fire: Avançadas](#avan%c3%a7adas)
     - [Eslint](#eslint)
     - [Prettier](#prettier)
     - [Editorconfig](#editorconfig)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+  - [:star: Contribuição](#contribui%c3%a7%c3%a3o)
+- [:clipboard: Licença](#licen%c3%a7a)
 
 <hr />
 
-## Ferramentas
+## :wrench: Ferramentas
 
 As ferramentas que serão usadas e aplicadas durante o desenvolvimento, serão diversas e idependentes para cada visão. Para o backend usaremos o `Node.js`, ele hoje sendo umas das referências. Já para o frontend usaremos o `ReactJs`, por ser uma plataforma bem favorável a nossa aplicação, será de grande ajuda o desenvolvimento nessa ferramenta do `React`.
 
@@ -335,7 +347,7 @@ Se você sentir a necessidade, ou queira modificar este arquivo de `README.md`, 
 
 <hr />
 
-## Avançadas
+## :fire: Avançadas
 
 Foi separado este tópico, porque basicamente isso funciona para qualquer tipo de visão, onde estará o backend e o frontend. Essas funcionalidades serão descritas rapidamentes, pois elas não são um requisito para o projeto, mas para uma boa usabilidade e ter um padrão único para o projeto, é interessante passar um tópico justamente para falar de cada uma delas.
 
@@ -395,7 +407,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ```
 
-## Contribuição
+## :star: Contribuição
 
 Antes de sair codando, você precisa fazer um passo a mais para se registrar nesse projeto como contribuidor :)
 
@@ -425,6 +437,6 @@ Contribuições são o que fazem a comunidade open source um lugar incrível par
 
 [Para mais, veja também nossa wiki clicando aqui!](https://github.com/DanielDavidDev/rocketflix/wiki)
 
-# Licença
+# :clipboard: Licença
 
 MIT
