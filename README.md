@@ -410,8 +410,9 @@ insert_final_newline = true
 
 Antes de sair codando, você precisa fazer um passo a mais para se registrar nesse projeto como contribuidor :)
 
-Escolha qual projeto vai utilizar para desenvolvimento, vou supor que você está em `backend`, então você entrará no arquivo **package.json**, nele você vai encontrar uma propriedade chamada de `contributors`, e adicione o seu nome, url e email(opcional).
+Na raiz do projeto você vai encontrar o arquivo `package.json` e nele, você irá colocar as seguintes configuraçõe na configuração `contributors`, depois dos seus colegas de equipe: nome, url e email(opcional).
 
+*Ex.:*
 ```json
 "contributors": [
   {
