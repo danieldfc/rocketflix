@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import request from 'supertest';
 
 import Queue from '../../../src/lib/Queue';
@@ -32,6 +33,16 @@ describe('User store', () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id');
+  });
+
+  it('should be able encrypt password with new user created', async () => {
+    const user = await factory.create('User', {
+      password: '123456',
+    });
+
+    const compareHash = await bcrypt.compare('123456', user.password_hash);
+
+    expect(compareHash).toBe(true);
   });
 
   it('should not be able to register with duplicated email', async () => {
