@@ -129,6 +129,20 @@ class VideoController {
       miniature,
     });
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+
+    const video = await Video.findByPk(id);
+
+    if (!video) {
+      return res.status(404).json({ error: { message: 'Video not found' } });
+    }
+
+    await video.destroy();
+
+    return res.send();
+  }
 }
 
 export default new VideoController();

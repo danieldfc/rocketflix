@@ -36,5 +36,6 @@ routes.post(
   VideoController.store
 );
 routes.put('/videos/:id', validateMiniatureId, VideoController.update);
+routes.delete('/videos/:id', VideoController.delete);
 
 export default routes;

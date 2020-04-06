@@ -213,3 +213,40 @@ describe('Video update', () => {
     });
   });
 });
+
+describe('Video delete', () => {
+  beforeEach(async () => {
+    await truncate();
+  });
+
+  it('should be able delete video', async () => {
+    const user = await factory.create('User');
+    const file = await factory.create('File');
+
+    const video = await factory.create('Video', {
+      miniatura_id: file.id,
+      owner_id: user.id,
+    });
+
+    const response = await request(app)
+      .delete(`/videos/${video.id}`)
+      .set('Authorization', `Bearer ${user.generateToken()}`);
+
+    expect(response.status).toBe(200);
+  });
+
+  it('should not be able delete without video', async () => {
+    const user = await factory.create('User');
+
+    const response = await request(app)
+      .delete('/videos/1')
+      .set('Authorization', `Bearer ${user.generateToken()}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body).toMatchObject({
+      error: expect.objectContaining({
+        message: expect.stringContaining('Video not found'),
+      }),
+    });
+  });
+});

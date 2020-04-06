@@ -36,9 +36,9 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
       - [x] `POST http://localhost:3333/videos` - Cria um vídeo
 
-      - [ ] `PUT http://localhost:3333/videos/:id` - Atualiza um vídeo
+      - [x] `PUT http://localhost:3333/videos/:id` - Atualiza um vídeo
 
-      - [ ] `DELETE http://localhost:3333/videos/:id` - Deleta um vídeo
+      - [x] `DELETE http://localhost:3333/videos/:id` - Deleta um vídeo
 
     - :memo: Tags
 
