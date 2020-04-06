@@ -116,23 +116,25 @@ describe('User update', () => {
   });
 
   it('should not be able with verify of duplicated email', async () => {
-    const userOne = await factory.create('User', {
-      email: 'daniel@test.com',
+    const user = await factory.create('User', {
+      email: 'test@test.com',
     });
 
-    const userTwo = await factory.create('User', {
-      email: 'daniel2@test.com',
+    await factory.create('User', {
+      email: 'test2@test.com',
     });
+
+    const updateUser = {
+      email: 'test2@test.com',
+      oldPassword: user.password,
+      password: '123123',
+      confirmPassword: '123123',
+    };
 
     const response = await request(app)
       .put('/users')
-      .set('Authorization', `Bearer ${userTwo.generateToken()}`)
-      .send({
-        email: userOne.email,
-        oldPassword: userTwo.password,
-        password: '123123',
-        confirmPassword: '123123',
-      });
+      .set('Authorization', `Bearer ${user.generateToken()}`)
+      .send(updateUser);
 
     expect(response.status).toBe(401);
     expect(response.body).toEqual({
@@ -165,7 +167,7 @@ describe('User update', () => {
     });
   });
 
-  it('should not be able validate without fields', async () => {
+  it('should not be able validate without fields of new password', async () => {
     const user = await factory.create('User', {
       password: '123456',
     });
@@ -201,28 +203,6 @@ describe('User update', () => {
         oldPassword: '123456',
         password: '123123',
         confirmPassword: '',
-      });
-
-    expect(response.status).toBe(403);
-    expect(response.body).toEqual({
-      error: expect.objectContaining({
-        message: 'Validation failure',
-      }),
-    });
-  });
-
-  it('should not be able validate without field confirmPassword', async () => {
-    const user = await factory.create('User', {
-      password: '123456',
-    });
-
-    const response = await request(app)
-      .put('/users')
-      .set('Authorization', `Bearer ${user.generateToken()}`)
-      .send({
-        email: user.email,
-        oldPassword: '123456',
-        password: '123123',
       });
 
     expect(response.status).toBe(403);

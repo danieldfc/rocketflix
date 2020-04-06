@@ -19,7 +19,7 @@ class UserController {
 
     const { id, name } = await User.create(req.body);
 
-    Queue.add(WelcomeMail.key, {
+    await Queue.add(WelcomeMail.key, {
       name,
       email,
     });
@@ -36,7 +36,7 @@ class UserController {
 
     const user = await User.findByPk(req.userId);
 
-    if (email !== user.email) {
+    if (email && email !== user.email) {
       const userExists = await User.findOne({ wherer: { email } });
 
       if (userExists) {

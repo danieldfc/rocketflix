@@ -21,12 +21,12 @@ class VideoController {
       include: [
         {
           model: User,
-          as: 'user',
+          as: 'owner',
           attributes: ['id', 'name', 'email'],
         },
         {
           model: File,
-          as: 'file',
+          as: 'miniature',
           attributes: ['id', 'path', 'url'],
         },
       ],
@@ -36,7 +36,7 @@ class VideoController {
   }
 
   async store(req, res) {
-    const { title, miniatura_id } = req.body;
+    const { title } = req.body;
 
     const checkTitle = await Video.findOne({ where: { title } });
 
@@ -47,21 +47,20 @@ class VideoController {
     }
 
     const { id } = await Video.create({
-      ...req.body,
       owner_id: req.userId,
-      miniatura_id: Number(miniatura_id),
+      ...req.body,
     });
 
-    const { description, url, user, file } = await Video.findByPk(id, {
+    const { description, url, owner, miniature } = await Video.findByPk(id, {
       include: [
         {
           model: File,
-          as: 'file',
+          as: 'miniature',
           attributes: ['id', 'name', 'url', 'path'],
         },
         {
           model: User,
-          as: 'user',
+          as: 'owner',
           attributes: ['id', 'name', 'email'],
         },
       ],
@@ -72,8 +71,62 @@ class VideoController {
       title,
       description,
       url,
-      user,
-      file,
+      owner,
+      miniature,
+    });
+  }
+
+  async update(req, res) {
+    const { id: video_id } = req.params;
+    const { title } = req.body;
+
+    const video = await Video.findByPk(video_id);
+
+    if (!video) {
+      return res.status(404).json({ error: { message: 'Video not found' } });
+    }
+
+    if (title && title !== video.title) {
+      const checkVideo = await Video.findOne({
+        where: {
+          title,
+          owner_id: req.userId,
+        },
+      });
+
+      if (checkVideo) {
+        return res.status(400).json({
+          error: { message: 'You are already using this video title' },
+        });
+      }
+    }
+
+    await video.update(req.body);
+
+    const { id, description, url, owner, miniature } = await Video.findByPk(
+      video_id,
+      {
+        include: [
+          {
+            model: User,
+            as: 'owner',
+            attributes: ['id', 'name', 'email'],
+          },
+          {
+            model: File,
+            as: 'miniature',
+            attributes: ['id', 'name', 'url', 'path'],
+          },
+        ],
+      }
+    );
+
+    return res.json({
+      id,
+      description,
+      url,
+      owner,
+      miniature,
     });
   }
 }

@@ -15,7 +15,10 @@ export default class Video extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'owner_id', as: 'user' });
-    this.belongsTo(models.File, { foreignKey: 'miniatura_id', as: 'file' });
+    this.belongsTo(models.User, { foreignKey: 'owner_id', as: 'owner' });
+    this.belongsTo(models.File, {
+      foreignKey: 'miniatura_id',
+      as: 'miniature',
+    });
   }
 }

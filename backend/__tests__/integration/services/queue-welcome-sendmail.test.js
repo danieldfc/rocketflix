@@ -1,9 +1,9 @@
-import Mail from '../../src/lib/Mail';
+import Mail from '../../../src/lib/Mail';
 
-import WelcomeMail from '../../src/app/jobs/WelcomeMail';
+import WelcomeMail from '../../../src/app/jobs/WelcomeMail';
 
-import factory from '../factories';
-import truncate from '../util/truncate';
+import factory from '../../factories';
+import truncate from '../../util/truncate';
 
 describe('Welcome Send Mail', () => {
   beforeEach(async () => {

@@ -2,7 +2,7 @@
   "name": "rocketflix",
   "version": "1.0.0",
   "private": true,
-  "repository": "git@github.com:DanielDavidDev/rocketflix.git",
+  "repository": "git@github.com:danieldfc/rocketflix.git",
   "author": "Daniel Felizardo <daniel.david772@gmail.com>",
   "license": "MIT",
   "contributors": [
@@ -43,7 +43,6 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
-    "backend": "2.0.0",
     "commitizen": "^4.0.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -51,8 +50,6 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
-    "lerna": "^3.16.4",
-    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2"
   }
 }

@@ -8,11 +8,11 @@ import UserController from './app/controllers/UserController';
 import VideoController from './app/controllers/VideoController';
 
 import authMiddleware from './app/middlewares/auth';
+import validateMiniatureId from './app/middlewares/validate-miniature-id';
 
-import ValidatorsSessionStore from './app/validators/Session/Store';
-import ValidatorsUserStore from './app/validators/User/Store';
-import ValidatorsUserUpdate from './app/validators/User/Update';
-import ValidatorsVideoStore from './app/validators/Video/Store';
+import { validatorSessionStore } from './app/validators/session';
+import { validatorUserStore, validatorUserUpdate } from './app/validators/user';
+import { validatorVideoStore } from './app/validators/video';
 
 import multerConfig from './config/multer';
 
@@ -20,15 +20,21 @@ const routes = Router();
 
 const upload = multer(multerConfig);
 
-routes.post('/users', ValidatorsUserStore, UserController.store);
-routes.post('/sessions', ValidatorsSessionStore, SessionController.store);
+routes.post('/users', validatorUserStore, UserController.store);
+routes.post('/sessions', validatorSessionStore, SessionController.store);
 
 routes.use(authMiddleware);
 
-routes.put('/users', ValidatorsUserUpdate, UserController.update);
+routes.put('/users', validatorUserUpdate, UserController.update);
 routes.post('/files', upload.single('file'), FileController.store);
 
 routes.get('/videos', VideoController.index);
-routes.post('/videos', ValidatorsVideoStore, VideoController.store);
+routes.post(
+  '/videos',
+  validateMiniatureId,
+  validatorVideoStore,
+  VideoController.store
+);
+routes.put('/videos/:id', validateMiniatureId, VideoController.update);
 
 export default routes;

@@ -1,4 +1,4 @@
-import { factory } from 'factory-girl';
+import factory from 'factory-girl';
 import faker from 'faker';
 
 import File from '../src/app/models/File';

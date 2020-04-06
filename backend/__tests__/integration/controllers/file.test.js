@@ -23,24 +23,4 @@ describe('File store', () => {
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id');
   });
-
-  it('should not be create file, but without token', async () => {
-    const response = await request(app).post('/files');
-
-    expect(response.status).toBe(401);
-    expect(response.body).toMatchObject({
-      error: { message: 'Token not found' },
-    });
-  });
-
-  it('should not be create file with token invalid', async () => {
-    const response = await request(app)
-      .post('/files')
-      .set('Authorization', 'Bearer 1234');
-
-    expect(response.status).toBe(401);
-    expect(response.body).toMatchObject({
-      error: { message: 'Token invalid' },
-    });
-  });
 });

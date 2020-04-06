@@ -1,13 +1,12 @@
-import { object, string, number } from 'yup';
+import { object, string } from 'yup';
 
-export default async (req, res, next) => {
+export async function validatorSessionStore(req, res, next) {
   try {
     const schema = object().shape({
-      title: string().required(),
-      description: string().required(),
-      miniatura_id: number()
-        .positive()
-        .integer(),
+      email: string()
+        .email()
+        .required(),
+      password: string().required(),
     });
 
     await schema.validate(req.body, { abortEarly: false });
@@ -20,4 +19,4 @@ export default async (req, res, next) => {
       },
     });
   }
-};
+}
