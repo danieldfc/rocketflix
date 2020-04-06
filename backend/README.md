@@ -1,7 +1,5 @@
 # Backend
 
----
-
 ## :scroll: Tabela de conteúdo
 
 - [Introdução em Backend](#introdução-em-backend)

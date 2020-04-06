@@ -17,12 +17,6 @@
       "email": "46094608+danielnora@users.noreply.github.com"
     }
   ],
-  "scripts": {
-    "packages": "run-s packages:*",
-    "packages:lint": "lerna run lint",
-    "packages:test": "lerna run test",
-    "packages:build": "lerna run build"
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",

@@ -1,7 +1,5 @@
 # Frontend
 
----
-
 ## :scroll: Tabela de conteúdo
 
 - [Introdução em Frontend](#introdução-em-frontend)
