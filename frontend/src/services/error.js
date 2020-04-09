@@ -1,4 +1,5 @@
-class ErrorBoundary extends React.Component {
+import React from "react";
+class ErrorBoundary extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -9,14 +10,16 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    logErrorToMyService(error, errorInfo);
+    this.setState({
+      error: error,
+      errorInfo: errorInfo
+    });
   }
 
   render() {
     if (this.state.hasError) {
       return <h1>Algo deu errado.</h1>;
     }
-
     return this.props.children;
   }
 }
