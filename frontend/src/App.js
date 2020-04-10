@@ -1,17 +1,13 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
+import React from "react";
+import ErrorBoundary from "./services/error";
 
-import GlobalStyles from '~/styles/global';
-
-import Routes from './routes';
-import history from './services/history';
+import Routes from "./routes";
 
 function App() {
   return (
-    <Router history={history}>
+    <ErrorBoundary>
       <Routes />
-      <GlobalStyles />
-    </Router>
+    </ErrorBoundary>
   );
 }
 

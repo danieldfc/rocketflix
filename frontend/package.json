@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "antd": "^4.1.1",
+    "axios": "^0.19.2",
     "customize-cra": "^0.9.1",
     "history": "^4.9.0",
     "husky": "^4.2.4",

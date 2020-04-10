@@ -1,14 +1,28 @@
-import React from 'react';
-import { Switch } from 'react-router-dom';
+import React from "react";
 
-import SignIn from '~/pages/SignIn';
+import { BrowserRouter, Switch } from "react-router-dom";
 
-import Route from './Route';
+import { PrivateRoute } from "./private";
 
-export default function Routes() {
-  return (
+import { PublicRoute } from "./public";
+
+import GlobalStyles from "~/styles/global";
+
+import Login from "../pages/public/SignIn";
+
+const Routes = () => (
+  <BrowserRouter>
     <Switch>
-      <Route path="/" exact component={SignIn} />
+      <PublicRoute path="/login" component={() => <Login />} />
+
+      <PublicRoute exact path="/signup" component={() => <h1>SignUp</h1>} />
+
+      <PrivateRoute exact path="/" component={() => <div>HomePage</div>} />
+
+      <PublicRoute path="*" component={<p>Error 404 Page not Found</p>} />
+      <GlobalStyles />
     </Switch>
-  );
-}
+  </BrowserRouter>
+);
+
+export default Routes;
