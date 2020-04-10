@@ -1,4 +1,5 @@
 import React from "react";
+
 class ErrorBoundary extends React.PureComponent {
   constructor(props) {
     super(props);

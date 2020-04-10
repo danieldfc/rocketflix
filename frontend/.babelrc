@@ -1,0 +1,7 @@
+// .babelrc or babel-loader option
+ // `style: true` for less
+{
+    "plugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+    ]
+  }
