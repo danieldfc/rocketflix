@@ -34,6 +34,8 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
       - [x] `GET http://localhost:3333/videos` - Lista todos os vídeos
 
+      - [ ] `GET http://localhost:3333/videos/:id` - Lista um único vídeo
+
       - [x] `POST http://localhost:3333/videos` - Cria um vídeo
 
       - [x] `PUT http://localhost:3333/videos/:id` - Atualiza um vídeo
@@ -42,9 +44,9 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
 
     - :memo: Tags
 
-      - [ ] `GET http://localhost:3333/tags` - Lista tags
+      - [ ] `GET http://localhost:3333/tags` - Lista todas as tags
 
-      - [ ] `GET http://localhost:3333/tags/:name_tag/videos` - Lista vídeos daquela tag
+      - [ ] `GET http://localhost:3333/tags/:title_tag/videos` - Lista vídeos daquela tag
 
       - [ ] `POST http://localhost:3333/tags` - Cria tag
 
@@ -147,32 +149,23 @@ Para melhor configuração dessa ferramenta e integrar bem ao editor, você pode
 ```json
 {
   "editor.formatOnSave": false,
-
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-    {
-      "language": "javascriptreact",
-      "autoFix": true
+  "eslint.packageManager": "yarn",
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     }
-  ]
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  }
 }
 ```
 
 ### Prettier
 
 Esta ferramenta se chama `prettier` e também possui uma [extenção](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), sendo de grande importância, estar instalando também, para que ele possa arrumar o seu código e assim ter uma integração com o eslint, tendo mais compatibilidades e metodologias aplicadas em seu projeto.
-
-Ele tem uma configuração no vscode que você poderá adicionar também:
-
-```json
-{
-  "prettier.eslintIntegration": true,
-}
-```
 
 ### Editorconfig
 
