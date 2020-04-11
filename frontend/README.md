@@ -22,6 +22,8 @@ src
 ┃   ┣ _layouts
 ┃   ┗ SignIn
 ┣ routes
+┃   ┣ private
+┃   ┗ public
 ┗ styles
      ┗ global.js
 ````
