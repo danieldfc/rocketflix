@@ -10,7 +10,7 @@ Este repositório tem o objetivo de criar uma plataforma de videos, em Node.Js e
 
 ## :rocket: Visão geral
 
-Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores e é para isso que existe a comunidade. Foi pensado exclusivamente para construirmos juntos um ambiente bem parecido com o aplicativo Netflix, com funcionalidades de videos lançados no momento, playlists, notificações, testes automatizados e muitas outras coisas que você poderá aplicar durante o seu desenvolvimento.
+Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores e é para isso que existe a comunidade. Foi pensado exclusivamente para construirmos juntos um ambiente bem parecido com o aplicativo Netflix, com funcionalidades de videos lançados no momento, tags, notificações, testes automatizados e muitas outras coisas que você poderá aplicar durante o seu desenvolvimento.
 
 :construction: **Backend** - Ele será responsável de entregar rotas de acesso ao frontend, e se caso já foi desenvolvido, não esquenta, este repositório é público e sempre precisa de melhorias, com certeza é uma boa você estar visualizando de forma geral, para poder entender e saber onde pode melhorar.
 
@@ -83,16 +83,6 @@ Este projeto tem um papel fundamental para a aprendizagem entre desenvolvedores 
         - [ ] `http://localhost:3000/journey/:nameTag/videos` - Listar vídeos dessa tag
 
         - [ ] `http://localhost:3000/journey/:nameTag/videos/:titleVideo` - Exibe um vídeo
-
-      - :cd: Playlists
-
-        - [ ] `http://localhost:3000/jorney/playlists` - Visualiza todas as playlists
-
-        - [ ] `http://localhost:3000/jorney/playlists/:namePlaylist` - Visualiza uma playlist específica
-
-        - [ ] `http://localhost:3000/jorney/playlists/new` - Cria uma nova playlist
-
-        - [ ] `http://localhost:3000/jorney/playlists/:namePlaylist/edit` - Edita uma playlist específica
 
 ````
 Nota:
