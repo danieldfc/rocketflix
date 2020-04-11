@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
   * {

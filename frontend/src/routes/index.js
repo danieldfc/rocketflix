@@ -1,14 +1,11 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-import { BrowserRouter, Switch } from "react-router-dom";
+import GlobalStyles from '~/styles/global';
 
-import { PrivateRoute } from "./private";
-
-import { PublicRoute } from "./public";
-
-import GlobalStyles from "~/styles/global";
-
-import Login from "../pages/public/SignIn";
+import Login from '../pages/public/SignIn';
+import { PrivateRoute } from './private';
+import { PublicRoute } from './public';
 
 const Routes = () => (
   <BrowserRouter>

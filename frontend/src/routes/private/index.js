@@ -1,9 +1,10 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
-import { isAuthenticated } from "~/services/auth";
+import PropTypes from 'prop-types';
 
-import AuthLayout from "~/pages/_layouts/auth";
+import AuthLayout from '~/pages/_layouts/auth';
+import { isAuthenticated } from '~/services/auth';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -15,9 +16,13 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
         </AuthLayout>
       ) : (
         <Redirect
-          to={{ pathname: "/login", state: { from: props.location } }}
+          to={{ pathname: '/login', state: { from: props.location } }}
         />
       )
     }
   />
 );
+
+PrivateRoute.propTypes = {
+  component: PropTypes.oneOf([PropTypes.func, PropTypes.element]).isRequired,
+};

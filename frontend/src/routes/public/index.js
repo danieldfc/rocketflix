@@ -1,7 +1,9 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React from 'react';
+import { Route } from 'react-router-dom';
 
-import DefaultLayout from "~/pages/_layouts/default";
+import PropTypes from 'prop-types';
+
+import DefaultLayout from '~/pages/_layouts/default';
 
 export const PublicRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -13,3 +15,7 @@ export const PublicRoute = ({ component: Component, ...rest }) => (
     )}
   />
 );
+
+PublicRoute.propTypes = {
+  component: PropTypes.oneOf([PropTypes.func, PropTypes.element]).isRequired,
+};

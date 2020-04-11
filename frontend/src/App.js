@@ -1,7 +1,7 @@
-import React from "react";
-import ErrorBoundary from "./services/error";
+import React from 'react';
 
-import Routes from "./routes";
+import Routes from './routes';
+import ErrorBoundary from './services/error';
 
 function App() {
   return (
