@@ -8,18 +8,16 @@ import AuthLayout from "~/pages/_layouts/auth";
 export const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props => (
-      <>
-        {isAuthenticated() ? (
-          <AuthLayout>
-            <Component {...props} />
-          </AuthLayout>
-        ) : (
-          <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
-          />
-        )}
-      </>
-    )}
+    render={props =>
+      isAuthenticated() ? (
+        <AuthLayout>
+          <Component {...props} />
+        </AuthLayout>
+      ) : (
+        <Redirect
+          to={{ pathname: "/login", state: { from: props.location } }}
+        />
+      )
+    }
   />
 );
