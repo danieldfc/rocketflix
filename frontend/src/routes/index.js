@@ -1,8 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
-import Login from "../pages/public/SignIn";
+import Login from "~/pages/public/SignIn";
+
+import Error404 from "~/pages/public/404";
+
 import { PrivateRoute } from "./private";
+
 import { PublicRoute } from "./public";
 
 const Routes = () => (
@@ -14,7 +18,7 @@ const Routes = () => (
 
       <PrivateRoute exact path="/" component={() => <div>HomePage</div>} />
 
-      <PublicRoute path="*" component={<p>Error 404 Page not Found</p>} />
+      <PublicRoute path="*" component={() => <Error404 />} />
     </Switch>
   </BrowserRouter>
 );

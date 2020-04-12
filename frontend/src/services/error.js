@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Wrapper } from "./styles";
+import {
+  Container,
+  WrapperError,
+  RFTitleError,
+  RFContentError
+} from "./styles";
+
+import { RFButtonWhite } from "~/styles/global";
 
 class ErrorBoundary extends React.PureComponent {
   constructor(props) {
@@ -26,9 +33,15 @@ class ErrorBoundary extends React.PureComponent {
 
     if (hasError) {
       return (
-        <Wrapper>
-          <h1>Algo deu errado.</h1>
-        </Wrapper>
+        <Container>
+          <WrapperError>
+            <RFTitleError>ERROR</RFTitleError>
+            <RFContentError>
+              Desculpem-nos do transtorno, alguma coisa deu errado.
+            </RFContentError>
+            <RFButtonWhite>VOLTAR</RFButtonWhite>
+          </WrapperError>
+        </Container>
       );
     }
 
