@@ -11,9 +11,9 @@ export const Container = styled.div`
 `;
 
 export const WrapperError = styled.div`
-  ${"" /* width: 33.4%; */}
+  width: 360px;
   height: 70vh;
-  ${"" /* background: white; */}
+  ${'' /* background: white; */}
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,6 +25,7 @@ export const RFTitleError = styled.p`
   font-weight: 900;
   font-size: 120px;
   text-align: center;
+  line-height: 1px;
 
   color: #ffffff;
 `;
@@ -34,6 +35,7 @@ export const RFContentError = styled.p`
   font-weight: 900;
   font-size: 24px;
   text-align: center;
+  line-height: 24px;
 
   color: #ffffff;
 `;
