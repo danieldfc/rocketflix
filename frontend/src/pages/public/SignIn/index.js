@@ -1,13 +1,8 @@
 import React from "react";
 
-import {
-  Wrapper,
-  RFLogoWhite,
-  RFInputText,
-  RFButton,
-  RFOu,
-  RFButtonWhite
-} from "./styles";
+import { Wrapper, RFLogoWhite, RFOu } from "./styles";
+
+import {  RFInputText, RFButton, RFButtonWhite } from "~/styles/global";
 
 export default function SignIn() {
   /* SignIn para não retorna uma página branca sem identificação */
