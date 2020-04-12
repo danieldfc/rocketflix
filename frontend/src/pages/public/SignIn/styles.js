@@ -79,6 +79,7 @@ const WrapperOu = styled.div`
 export const RFHr = styled.hr`
   width: 132px;
   border: 2px solid #fbfbfb;
+  border-radius: 10px;
 `;
 
 export const RFOu = () => {
