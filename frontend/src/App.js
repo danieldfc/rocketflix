@@ -4,13 +4,16 @@ import Routes from "./routes";
 
 import ErrorBoundary from "./services/error";
 
-import "antd/dist/antd.less"; // or 'antd/dist/antd.css'
+import GlobalStyles from "~/styles/global";
 
 function App() {
   return (
-    <ErrorBoundary>
-      <Routes />
-    </ErrorBoundary>
+    <>
+      <GlobalStyles />
+      <ErrorBoundary>
+        <Routes />
+      </ErrorBoundary>
+    </>
   );
 }
 

@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
+
+import { Wrapper } from "./styles";
 
 class ErrorBoundary extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, error: null, errorInfo: null };
   }
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    if (error) return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
     this.setState({
       error,
-      errorInfo,
+      errorInfo
     });
+    this.getDerivedStateFromError(error);
   }
 
   render() {
@@ -22,7 +25,11 @@ class ErrorBoundary extends React.PureComponent {
     const { hasError } = this.state;
 
     if (hasError) {
-      return <h1>Algo deu errado.</h1>;
+      return (
+        <Wrapper>
+          <h1>Algo deu errado.</h1>
+        </Wrapper>
+      );
     }
 
     return children;

@@ -1,11 +1,9 @@
-import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Switch } from "react-router-dom";
 
-import GlobalStyles from '~/styles/global';
-
-import Login from '../pages/public/SignIn';
-import { PrivateRoute } from './private';
-import { PublicRoute } from './public';
+import Login from "../pages/public/SignIn";
+import { PrivateRoute } from "./private";
+import { PublicRoute } from "./public";
 
 const Routes = () => (
   <BrowserRouter>
@@ -17,7 +15,6 @@ const Routes = () => (
       <PrivateRoute exact path="/" component={() => <div>HomePage</div>} />
 
       <PublicRoute path="*" component={<p>Error 404 Page not Found</p>} />
-      <GlobalStyles />
     </Switch>
   </BrowserRouter>
 );
