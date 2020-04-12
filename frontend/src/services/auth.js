@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { SERVER_URL_API, TOKEN_KEY } from './conf';
+import { SERVER_URL_API, TOKEN_KEY } from "./conf";
 
 export const isAuthenticated = () => {
   if (sessionStorage.getItem(TOKEN_KEY) !== null) {
     return true;
   }
-  return false;
+  return true;
 };
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
@@ -21,7 +21,7 @@ export const login = async data => {
     const expire_at = res.data.expireAt;
 
     localStorage.setItem(TOKEN_KEY, jwt);
-    localStorage.setItem('expire_at', expire_at);
+    localStorage.setItem("expire_at", expire_at);
     return true;
   }
   return false;
