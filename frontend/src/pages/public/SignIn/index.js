@@ -2,7 +2,12 @@ import React from "react";
 
 import { Wrapper, RFLogoWhite, RFOu } from "./styles";
 
-import {  RFInputText, RFButton, RFButtonWhite } from "~/styles/global";
+import {
+  RFInputText,
+  RFInputTextPassword,
+  RFButton,
+  RFButtonWhite
+} from "~/styles/global";
 
 export default function SignIn() {
   /* SignIn para não retorna uma página branca sem identificação */
@@ -10,7 +15,7 @@ export default function SignIn() {
     <Wrapper>
       <RFLogoWhite />
       <RFInputText placeholder="EMAIL"></RFInputText>
-      <RFInputText placeholder="SENHA"></RFInputText>
+      <RFInputTextPassword placeholder="SENHA"></RFInputTextPassword>
       <RFButton>ENTRAR</RFButton>
       <RFOu />
       <RFButtonWhite>REGISTRAR</RFButtonWhite>

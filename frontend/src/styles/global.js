@@ -48,10 +48,10 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
-
+  
 `;
 
-export const RFInputText = styled(Input)`
+export const RFInputTextPassword = styled(Input.Password)`
   width: 100%;
   height: 45px;
   background: #ffffff;
@@ -68,6 +68,53 @@ export const RFInputText = styled(Input)`
     /* identical to box height */
 
     color: #666666;
+  }
+
+  span {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    ${"" /* color: #666666; */}
+  }
+
+  .ant-input {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+  }
+`;
+
+export const RFInputText = styled(Input)`
+  width: 100%;
+  height: 45px;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.25);
+  border-radius: 10px;
+
+  ::placeholder {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+
+    ${"" /* color: #666666; */}
+  }
+
+  span {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    ${"" /* color: #666666; */}
+  }
+
+  .ant-input {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
   }
 `;
 
