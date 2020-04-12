@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import logo from '~/assets/img/logo.png';
+import logo from "~/assets/img/logo.png";
 
-import { RFHeader, RFLogo } from './components';
-import Container from './styles';
+import { RFHeader, RFLogo } from "./components";
 
 export default function Header() {
   return (
     <RFHeader className="rf-header">
-      <Container>
+      <div>
         <RFLogo src={logo} alt="" />
-      </Container>
+      </div>
     </RFHeader>
   );
 }
