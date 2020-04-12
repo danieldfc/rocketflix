@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import "antd/dist/antd.less"; // or 'antd/dist/antd.css'
 
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Open+Sans&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -17,6 +17,8 @@ export default createGlobalStyle`
 
   html, body {
     height: 100%;
+    ${"" /* font-family: "Noto Serif", serif; */}
+   font-family: "Open Sans", sans-serif;
   }
 
   #root {
@@ -28,7 +30,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font: 14px 'Roboto', sans-serif;
+    
   }
 
   a {
@@ -42,4 +44,5 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
 `;
