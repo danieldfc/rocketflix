@@ -1,4 +1,4 @@
-import "antd/dist/antd.less"; // or 'antd/dist/antd.css'
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 
 import { createGlobalStyle } from "styled-components";
 
