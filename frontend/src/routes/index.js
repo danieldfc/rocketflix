@@ -3,6 +3,8 @@ import { BrowserRouter, Switch } from "react-router-dom";
 
 import Login from "~/pages/public/SignIn";
 
+import Home from "~/pages/private/Home";
+
 import Error404 from "~/pages/public/404";
 
 import { PrivateRoute } from "./private";
@@ -16,7 +18,7 @@ const Routes = () => (
 
       <PublicRoute exact path="/signup" component={() => <h1>SignUp</h1>} />
 
-      <PrivateRoute exact path="/" component={() => <div>HomePage</div>} />
+      <PrivateRoute exact path="/" component={() => <Home />} />
 
       <PublicRoute path="*" component={() => <Error404 />} />
     </Switch>
