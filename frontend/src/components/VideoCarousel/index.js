@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Skeleton } from "antd";
-
 import { SliderItem, IconRight, IconLeft, RFVideoPreview } from "./styles";
 
 const onChange = (a, b, c) => {
@@ -69,53 +67,21 @@ const VideoCarousel = ({ isMobile }) => {
   return (
     <div>
       <SliderItem {...settings} afterChange={onChange}>
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>1</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>2</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>3</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>4</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>5</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>6</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>7</h3>} />
 
-        <RFVideoPreview>
-          <Skeleton active paragraph={{ rows: 4 }}>
-            <h3>1</h3>
-          </Skeleton>
-        </RFVideoPreview>
+        <RFVideoPreview hoverable={true} children={<h3>8</h3>} />
       </SliderItem>
     </div>
   );

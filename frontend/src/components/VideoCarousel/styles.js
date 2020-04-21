@@ -1,9 +1,15 @@
+import React from "react";
+
 import styled, { css } from "styled-components";
 
+import { Skeleton } from "antd";
+
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
+
 import "slick-carousel/slick/slick-theme.css";
 
 export const SliderItem = styled(Slider)`
@@ -36,10 +42,22 @@ export const IconLeft = styled(LeftOutlined)`
   ${iconCss}
 `;
 
-export const RFVideoPreview = styled.div`
+const _RFVideoPreview = styled.div`
   width: 300px;
   height: 200px;
 
   box-shadow: 0px 10px 20px rgba(128, 128, 128, 0.25);
   border-radius: 20px;
 `;
+
+export const RFVideoPreview = ({ children, hoverable }) => {
+  return (
+    <_RFVideoPreview>
+      {hoverable && (
+        <Skeleton active paragraph={{ rows: 4 }}>
+          {children}
+        </Skeleton>
+      )}
+    </_RFVideoPreview>
+  );
+};
