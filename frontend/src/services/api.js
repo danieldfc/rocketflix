@@ -19,7 +19,7 @@ api.interceptors.request.use(async config => {
 
 export const apiGet = async path => {
   try {
-    const res = await axios.get(`${SERVER_URL_API_V2}${path}`, {
+    const res = await axios.get(`${SERVER_URL_API}${path}`, {
       headers: {
         Authorization: AuthStr
       }
@@ -34,7 +34,7 @@ export const apiGet = async path => {
 
 export const apiPost = async (path, param) => {
   try {
-    const res = await axios.post(`${SERVER_URL_API_V2}${path}`, param, {
+    const res = await axios.post(`${SERVER_URL_API}${path}`, param, {
       headers: {
         Authorization: AuthStr
       }
