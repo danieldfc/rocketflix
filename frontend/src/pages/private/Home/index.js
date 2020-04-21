@@ -1,11 +1,14 @@
 import React from "react";
 
-import VideoCarousel from "~/components/VideoCarousel";
+import { VideoCarousel, Synopsis } from "~/components";
+
+import { RFHomeContainer } from "./styles";
 
 export default () => {
   return (
-    <div>
+    <RFHomeContainer>
+      <Synopsis />
       <VideoCarousel />
-    </div>
+    </RFHomeContainer>
   );
 };

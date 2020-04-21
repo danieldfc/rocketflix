@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export const SliderItem = styled(Slider)`
   ${"" /* height: 122px; */}
-  margin-left: 80px;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
