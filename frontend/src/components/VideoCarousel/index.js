@@ -55,11 +55,11 @@ const VideoCarousel = ({ isMobile }) => {
     // focusOnSelect: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    // centerPadding: "32px",
+    slidesToScroll: 2,
+    centerPadding: "32px",
     rows: 1,
-    // swipe: true,
-    centerMode: true,
+    swipe: true,
+    // centerMode: true,
 
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />
