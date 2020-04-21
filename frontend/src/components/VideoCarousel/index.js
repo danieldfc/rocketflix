@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Skeleton } from "antd";
+
 import { SliderItem, IconRight, IconLeft, RFVideoPreview } from "./styles";
 
 const onChange = (a, b, c) => {
@@ -68,28 +70,51 @@ const VideoCarousel = ({ isMobile }) => {
     <div>
       <SliderItem {...settings} afterChange={onChange}>
         <RFVideoPreview>
-          <h3>1</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>2</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>3</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>4</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>5</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>6</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>7</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
+
         <RFVideoPreview>
-          <h3>8</h3>
+          <Skeleton active paragraph={{ rows: 4 }}>
+            <h3>1</h3>
+          </Skeleton>
         </RFVideoPreview>
       </SliderItem>
     </div>
