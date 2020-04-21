@@ -12,6 +12,10 @@ export const SliderItem = styled(Slider)`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  .slick-slide {
+    padding: 16px;
+  }
 `;
 
 const iconCss = css`
