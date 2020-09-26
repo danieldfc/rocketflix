@@ -17,12 +17,6 @@
       "email": "46094608+danielnora@users.noreply.github.com"
     }
   ],
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -30,20 +24,20 @@
   },
   "workspaces": {
     "packages": [
-      "backend",
-      "frontend"
+      "packages/*",
+      "packages/shared/*"
     ]
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.3.4",
+    "@rocketflix/eslint-config": "*",
+    "@types/jest": "^24.0.18",
     "commitizen": "^4.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
-    "prettier": "^1.18.2"
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
