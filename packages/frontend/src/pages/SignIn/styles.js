@@ -16,6 +16,10 @@ export const Container = styled.div`
 
   form {
     width: 340px;
+
+    button {
+      margin-top: 20px;
+    }
   }
 
   > a {
@@ -46,7 +50,7 @@ export const Separator = styled.div`
   ::before {
     content: '';
     position: absolute;
-    top: 71%;
+    top: 69.6%;
     width: calc(26% - 25px);
     right: 50%;
     left: 37.8%;
