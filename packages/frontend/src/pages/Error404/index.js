@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RFButtonWhite } from '../../../styles/global';
+import { RFButtonWhite } from '../../styles/global';
 
 import {
   Container,
@@ -9,7 +9,7 @@ import {
   RFContentError,
 } from './styles';
 
-export default () => {
+export default function Error404() {
   return (
     <Container>
       <WrapperError>
@@ -19,4 +19,4 @@ export default () => {
       </WrapperError>
     </Container>
   );
-};
+}

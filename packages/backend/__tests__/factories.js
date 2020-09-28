@@ -21,7 +21,7 @@ factory.define('Video', Video, {
 
 factory.define('File', File, {
   name: faker.name.title(),
-  path: '3fecd270a8d88febbe574d6dd525a47d.png',
+  path: '3fecd270a8d88febbe574d6dd525a47d.svg',
 });
 
 export default factory;

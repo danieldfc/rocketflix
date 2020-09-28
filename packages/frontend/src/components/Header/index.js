@@ -1,20 +1,45 @@
 import React from 'react';
+import { MdSearch } from 'react-icons/md';
 
-import logo from '../../assets/img/logo.png';
+// import Navbar from '../NavBar';
 
-import { RFHeader, RFLogo, RFMenuNavBar, RFSearch } from './styles';
+import { Container, Link } from './styles';
 
-export default function Header() {
+import Logo from '../../assets/img/logo-purple.svg';
+
+const Header = () => {
+  // const [isOpenNavbar, setIsOpenNavbar] = useState(false);
+
+  // const handleOpenNavbar = useCallback(() => {
+  //   if (isOpenNavbar) {
+  //     setIsOpenNavbar(false);
+  //   } else {
+  //     setIsOpenNavbar(true);
+  //   }
+  // }, [isOpenNavbar]);
+
   return (
-    <RFHeader>
-      <RFLogo src={logo} alt="" />
-      <RFMenuNavBar>
-        <a href="#top">HOME</a>
-        <a href="#top">COMUNIDADE</a>
-        <a href="#top">CONHEÇA</a>
-        <a href="#top">LOGOUT</a>
-        <RFSearch />
-      </RFMenuNavBar>
-    </RFHeader>
+    <>
+      {/* {isOpenNavbar && <Navbar />} */}
+      <Container>
+        <header>
+          <img src={Logo} alt="Rocketflix" />
+          <nav>
+            <Link to="/">HOME</Link>
+            <Link to="/">COMUNIDADE</Link>
+            <Link to="/">CONHEÇA</Link>
+            <Link to="/signin">LOGIN</Link>
+
+            <MdSearch
+              size={20}
+              color="#7159c1"
+              // onClick={handleOpenNavbar}
+            />
+          </nav>
+        </header>
+      </Container>
+    </>
   );
-}
+};
+
+export default Header;

@@ -6,5 +6,4 @@ module.exports = {
   coverageReporters: ['text-summary', 'lcov'],
   testEnvironment: 'node',
   projects: ['<rootDir>/packages/**/jest.config.js'],
-  testMatch: ['*.spec.js'],
 };

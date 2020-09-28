@@ -1,19 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import Routes from './routes';
+
+import AppProvider from './hooks';
 
 import GlobalStyles from './styles/global';
 
-import Routes from './routes';
-import ErrorBoundary from './services/error';
+const App = () => (
+  <Router>
+    <AppProvider>
+      <Routes />
+    </AppProvider>
 
-function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <ErrorBoundary>
-        <Routes />
-      </ErrorBoundary>
-    </>
-  );
-}
+    <GlobalStyles />
+  </Router>
+);
 
 export default App;
