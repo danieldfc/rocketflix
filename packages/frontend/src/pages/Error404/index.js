@@ -1,22 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { RFButtonWhite } from '../../styles/global';
-
-import {
-  Container,
-  WrapperError,
-  RFTitleError,
-  RFContentError,
-} from './styles';
+import { Container, Content } from './styles';
 
 export default function Error404() {
   return (
     <Container>
-      <WrapperError>
-        <RFTitleError>404</RFTitleError>
-        <RFContentError>Página não encontrada.</RFContentError>
-        <RFButtonWhite>VOLTAR</RFButtonWhite>
-      </WrapperError>
+      <Content>
+        <h1>ERROR</h1>
+        <p>Desculpem-nos do transtorno, alguma coisa deu errado.</p>
+        <Link to="/">VOLTAR</Link>
+      </Content>
     </Container>
   );
 }

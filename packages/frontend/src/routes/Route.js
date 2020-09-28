@@ -15,7 +15,7 @@ const RouteWrapper = ({ isPrivate = false, component: Component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: isPrivate ? '/' : '/dashboard',
+              pathname: isPrivate ? '/' : '/home',
               state: { from: location },
             }}
           />

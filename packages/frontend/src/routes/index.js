@@ -10,10 +10,10 @@ import Route from './Route';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={Home} />
-    <Route path="/signin" component={SignIn} />
-
+    <Route exact path="/" component={SignIn} />
     <Route path="/signup" component={SignUp} />
+
+    <Route path="/home" component={Home} isPrivate />
 
     <Route path="*" component={Error404} />
   </Switch>

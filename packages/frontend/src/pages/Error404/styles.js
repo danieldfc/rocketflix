@@ -3,39 +3,55 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 100%;
   min-height: 100vh;
+  background: #7159c1;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Content = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #624ea5;
-  color: #ffffff;
-`;
-
-export const WrapperError = styled.div`
-  width: 360px;
-  height: 70vh;
-  ${'' /* background: white; */}
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
-export const RFTitleError = styled.p`
-  font-style: normal;
-  font-weight: 900;
-  font-size: 120px;
-  text-align: center;
-  line-height: 1px;
+  h1 {
+    font-size: 120px;
+    line-height: 163px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+  }
 
-  color: #ffffff;
-`;
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
 
-export const RFContentError = styled.p`
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  text-align: center;
-  line-height: 24px;
+  > a {
+    margin-top: 36px;
+    width: 400px;
+    height: 45px;
+    border-radius: 4px;
+    padding: 8px;
+    background: #fff;
+    color: #9074ee;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: all 0.5s;
+    text-align: center;
 
-  color: #ffffff;
+    &:hover {
+      background: #9074ee;
+      color: #fff;
+      border: 1px solid #9074ee;
+    }
+  }
 `;

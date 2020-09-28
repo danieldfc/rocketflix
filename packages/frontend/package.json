@@ -21,7 +21,7 @@
     "react-spring": "^8.0.27",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.1.0",
-    "uuidv4": "^6.2.3",
+    "uuid": "^8.3.0",
     "yup": "^0.29.3"
   },
   "scripts": {

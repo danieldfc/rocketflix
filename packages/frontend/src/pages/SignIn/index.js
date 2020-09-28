@@ -23,9 +23,7 @@ export default function SignIn() {
   const handleSubmit = useCallback(
     async data => {
       try {
-        if (formRef.current) {
-          formRef.current.setErrors({});
-        }
+        formRef.current.setErrors({});
 
         const schema = Yup.object().shape({
           email: Yup.string()
@@ -41,14 +39,12 @@ export default function SignIn() {
           password: data.password,
         });
 
-        history.push('/dashboard');
+        history.push('/');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
 
-          if (formRef.current) {
-            formRef.current.setErrors(errors);
-          }
+          formRef.current.setErrors(errors);
 
           return;
         }
@@ -66,14 +62,16 @@ export default function SignIn() {
   return (
     <Container>
       <img src={logoImgWhite} alt="Rocketflix" />
-      <Form onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
         <Input name="email" type="email" placeholder="EMAIL" />
         <Input name="password" type="password" placeholder="SENHA" />
         <Button bgWhite={false} type="submit">
           ENTRAR
         </Button>
       </Form>
+
       <Separator />
+
       <Link to="/signup">REGISTRAR</Link>
     </Container>
   );

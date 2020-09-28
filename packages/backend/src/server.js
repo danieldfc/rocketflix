@@ -1,5 +1,5 @@
 import app from './app';
 
 app.listen(process.env.PORT || 3333, () => {
-  console.log('> Starting server...');
+  console.log('🚀 Server started on port 3333!');
 });

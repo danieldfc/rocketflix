@@ -2,12 +2,14 @@ import React from 'react';
 import { MdSearch } from 'react-icons/md';
 
 // import Navbar from '../NavBar';
+import { useAuth } from '../../hooks/auth';
 
 import { Container, Link } from './styles';
 
 import Logo from '../../assets/img/logo-purple.svg';
 
 const Header = () => {
+  const { user, signOut } = useAuth();
   // const [isOpenNavbar, setIsOpenNavbar] = useState(false);
 
   // const handleOpenNavbar = useCallback(() => {
@@ -28,7 +30,13 @@ const Header = () => {
             <Link to="/">HOME</Link>
             <Link to="/">COMUNIDADE</Link>
             <Link to="/">CONHEÇA</Link>
-            <Link to="/signin">LOGIN</Link>
+            {user ? (
+              <Link to="/profile" onClick={signOut}>
+                {user.name}
+              </Link>
+            ) : (
+              <Link to="/signin">LOGIN</Link>
+            )}
 
             <MdSearch
               size={20}

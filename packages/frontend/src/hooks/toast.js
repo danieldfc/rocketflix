@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useCallback, useState } from 'react';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ToastContainer } from '../components';
 
@@ -9,7 +9,7 @@ const ToastProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);
 
   const addToast = useCallback(({ type, description, title }) => {
-    const id = uuid();
+    const id = uuidv4();
 
     const toast = {
       id,
