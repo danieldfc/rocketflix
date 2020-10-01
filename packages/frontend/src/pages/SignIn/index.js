@@ -6,7 +6,8 @@ import * as Yup from 'yup';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
-import { Button, Input } from '../../components';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 import logoImgWhite from '../../assets/img/logo-white.svg';
 

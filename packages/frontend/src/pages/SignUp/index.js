@@ -9,7 +9,8 @@ import { useToast } from '../../hooks/toast';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
-import { Button, Input } from '../../components';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 import logoImgWhite from '../../assets/img/logo-white.svg';
 

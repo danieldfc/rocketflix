@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { VideoCarousel, Synopsis, Header } from '../../components';
+import Header from '../../components/Header';
+import Synopsis from '../../components/Synopsis';
 
 import { RFHomeContainer } from './styles';
 
@@ -21,7 +22,6 @@ export default function Home() {
     <RFHomeContainer>
       <Header />
       <Synopsis video={video} />
-      <VideoCarousel />
     </RFHomeContainer>
   );
 }

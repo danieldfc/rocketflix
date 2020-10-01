@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
-import { ToastContainer } from '../components';
+import ToastContainer from '../components/ToastContainer';
 
 const ToastContaxt = createContext({});
 
-const ToastProvider = ({ children }) => {
+function ToastProvider({ children }) {
   const [messages, setMessages] = useState([]);
 
   const addToast = useCallback(({ type, description, title }) => {
@@ -33,7 +34,7 @@ const ToastProvider = ({ children }) => {
       <ToastContainer messages={messages} />
     </ToastContaxt.Provider>
   );
-};
+}
 
 function useToast() {
   const context = useContext(ToastContaxt);
@@ -44,5 +45,13 @@ function useToast() {
 
   return context;
 }
+
+ToastProvider.propTypes = {
+  children: PropTypes.oneOf([PropTypes.func, PropTypes.element]),
+};
+
+ToastProvider.defaultProps = {
+  children: () => {},
+};
 
 export { useToast, ToastProvider };

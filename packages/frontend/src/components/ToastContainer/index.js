@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTransition } from 'react-spring';
+import PropTypes from 'prop-types';
 
 import Toast from './Toast';
 
 import { Container } from './styles';
 
-const ToastContainer = ({ messages }) => {
+export default function ToastContainer({ messages }) {
   const messagesWithTransitions = useTransition(
     messages,
     message => message.id,
@@ -23,6 +24,19 @@ const ToastContainer = ({ messages }) => {
       ))}
     </Container>
   );
+}
+
+ToastContainer.propTypes = {
+  messages: PropTypes.arrayOf([
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: 'success' || 'error' || 'info',
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+  ]),
 };
 
-export default ToastContainer;
+ToastContainer.defaultProps = {
+  messages: [],
+};

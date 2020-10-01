@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { FiAlertCircle, FiCheck, FiInfo, FiXCircle } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 import { useToast } from '../../../hooks/toast';
 
@@ -11,7 +12,7 @@ const icons = {
   error: <FiAlertCircle size={24} />,
 };
 
-const Toast = ({ message, style }) => {
+export default function Toast({ message, style }) {
   const { removeToast } = useToast();
 
   useEffect(() => {
@@ -42,6 +43,17 @@ const Toast = ({ message, style }) => {
       </button>
     </Container>
   );
+}
+
+Toast.propTypes = {
+  message: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: 'success' || 'error' || 'info',
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }),
 };
 
-export default Toast;
+Toast.defaultProps = {
+  message: {},
+};
