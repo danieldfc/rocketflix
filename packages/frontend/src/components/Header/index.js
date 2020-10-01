@@ -8,8 +8,8 @@ import { Container, Link } from './styles';
 
 import Logo from '../../assets/img/logo-purple.svg';
 
-const Header = () => {
-  const { user, signOut } = useAuth();
+export default function Header() {
+  const { signOut } = useAuth();
   // const [isOpenNavbar, setIsOpenNavbar] = useState(false);
 
   // const handleOpenNavbar = useCallback(() => {
@@ -30,13 +30,10 @@ const Header = () => {
             <Link to="/">HOME</Link>
             <Link to="/">COMUNIDADE</Link>
             <Link to="/">CONHEÇA</Link>
-            {user ? (
-              <Link to="/profile" onClick={signOut}>
-                {user.name}
-              </Link>
-            ) : (
-              <Link to="/signin">LOGIN</Link>
-            )}
+
+            <Link to="/signout" onClick={signOut}>
+              LOGOUT
+            </Link>
 
             <MdSearch
               size={20}
@@ -48,6 +45,4 @@ const Header = () => {
       </Container>
     </>
   );
-};
-
-export default Header;
+}

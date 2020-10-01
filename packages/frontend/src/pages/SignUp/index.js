@@ -78,7 +78,7 @@ export default function SignUp() {
 
       <Separator />
 
-      <Link to="/signin">VOLTAR PARA LOGIN</Link>
+      <Link to="/">VOLTAR PARA LOGIN</Link>
     </Container>
   );
 }
