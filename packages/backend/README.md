@@ -51,6 +51,7 @@ Será responsável de entregar rotas de acesso ao frontend, e se caso já foi de
 ## :scroll: Tabela de conteúdo
 
 - [Executar](#executar)
+- [Insomnia](#insomnia)
 - <a href="../../README.md">Voltar para o principal</a>
 
 ---
@@ -86,3 +87,9 @@ $ yarn dev
 Fazendo isso, você poderá dar início a sua jornada de desenvolvimento. Se caso você sofrer com algum erro, ou não conseguir colocar uma certa configuração em seu projeto, sugiro abrir uma [issue](https://github.com/DanielDavidDev/rocketflix/issues), para que se caso outros desenvolvedores sofrerem com este mesmo problema, sejá mais fácil encontrar a solução.
 
 Se você sentir a necessidade, ou queira modificar este arquivo de `README.md`, você poderá fazer isso caso seja uma boa forma de ser documentado. Presumo que você possa ser muito útil para nos ajudar a deixar ainda mais legível essa documentação para outros desenvolvedores.
+
+# Insomnia
+
+Você pode utilizar o insomnia para testar as rotas da aplicação, clicando no botão abaixo:
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rocketflix&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdanieldfc%2Frocketflix%2Fmaster%2Fexport.json)
