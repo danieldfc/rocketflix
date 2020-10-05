@@ -7,6 +7,7 @@ import { useAuth } from '../../hooks/auth';
 import { Container, Link } from './styles';
 
 import Logo from '../../assets/img/logo-purple.svg';
+import colors from '../../styles/colors';
 
 export default function Header() {
   const { signOut } = useAuth();
@@ -37,7 +38,7 @@ export default function Header() {
 
             <MdSearch
               size={20}
-              color="#7159c1"
+              color={colors.rocketseat}
               // onClick={handleOpenNavbar}
             />
           </nav>

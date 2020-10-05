@@ -3,10 +3,12 @@ import { shade } from 'polished';
 
 import Tooltip from '../Tooltip';
 
+import colors from '../../styles/colors';
+
 export const Container = styled.div`
-  background: #fff;
+  background: var(--white-color);
   border-radius: 10px;
-  border: 2px solid #fff;
+  border: 2px solid var(--white-color);
   padding: 14px 12px;
   width: 100%;
   height: 45px;
@@ -16,20 +18,20 @@ export const Container = styled.div`
   ${props =>
     props.isErrored &&
     css`
-      border-color: #c53030;
+      border-color: var(--error-dark-color);
     `}
 
   ${props =>
     props.isFocused &&
     css`
-      color: #7159c1;
-      border-color: ${shade(0.2, '#7159c1')};
+      color: var(--rocketseat-color);
+      border-color: ${shade(0.2, colors.rocketseat)};
     `}
 
   ${props =>
     props.isFilled &&
     css`
-      color: #7159c1;
+      color: var(--rocketseat-color);
     `}
 
   & + div {
@@ -40,10 +42,10 @@ export const Container = styled.div`
     flex: 1;
     border: 0;
     background: transparent;
-    color: #444;
+    color: var(--gray-color);
 
     &::placeholder {
-      color: #666;
+      color: var(--gray-light-color);
     }
   }
 
@@ -61,11 +63,11 @@ export const Error = styled(Tooltip)`
   }
 
   span {
-    background: #c53030;
-    color: #fff;
+    background: var(--error-dark-color);
+    color: var(--white-color);
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: var(--error-dark-color) transparent;
     }
   }
 `;

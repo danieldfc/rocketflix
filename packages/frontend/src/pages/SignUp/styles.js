@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   min-height: 100vh;
-  background: #7159c1;
+  background: var(--rocketseat-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,20 +28,20 @@ export const Container = styled.div`
     border-radius: 4px;
     padding: 8px;
     margin-top: 36px;
-    background: #fff;
-    color: #9074ee;
+    background: var(--white-color);
+    color: var(--purple-color);
     font-weight: bold;
     font-size: 16px;
-    border: 1px solid #fff;
+    border: 1px solid var(--white-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     transition: all 0.5s;
     text-align: center;
 
     &:hover {
-      background: #9074ee;
-      color: #fff;
-      border: 1px solid #9074ee;
+      background: var(--purple-color);
+      color: var(--white-color);
+      border: 1px solid var(--purple-color);
     }
   }
 `;

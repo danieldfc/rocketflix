@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 import { Link as Anchor } from 'react-router-dom';
+import colors from '../../styles/colors';
 
 export const Container = styled.div`
   max-height: 80px;
@@ -29,7 +30,7 @@ export const Container = styled.div`
 `;
 
 export const Link = styled(Anchor)`
-  color: #7159c1;
+  color: var(--rocketseat-color);
   font-weight: bold;
   transition: color 0.2s;
 
@@ -38,6 +39,6 @@ export const Link = styled(Anchor)`
   }
 
   &:hover {
-    color: ${shade(0.2, '#7159c1')};
+    color: ${shade(0.2, colors.rocketseat)};
   }
 `;

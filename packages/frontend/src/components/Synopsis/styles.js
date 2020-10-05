@@ -17,11 +17,11 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 552px;
   margin-left: 72px;
-  color: #161b3d;
+  color: var(--primary-dark-color);
 
   a {
     font-size: 72px;
-    color: #161b3d;
+    color: var(--primary-dark-color);
     font-weight: bold;
     line-height: 98.06px;
     transition: all 0.7s;
@@ -29,7 +29,7 @@ export const Content = styled.div`
     &:hover {
       cursor: pointer;
       text-decoration: underline;
-      text-decoration-color: #161b3d;
+      text-decoration-color: var(--primary-dark-color);
     }
   }
 

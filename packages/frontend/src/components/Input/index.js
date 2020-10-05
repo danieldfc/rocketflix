@@ -3,6 +3,7 @@ import { FiAlertCircle } from 'react-icons/fi';
 import { useField } from '@unform/core';
 
 import { Container, Error } from './styles';
+import colors from '../../styles/colors';
 
 export default function Input({
   name,
@@ -52,7 +53,7 @@ export default function Input({
 
       {error && (
         <Error title={error}>
-          <FiAlertCircle color="#c53030" size={20} />
+          <FiAlertCircle color={colors.redDark} size={20} />
         </Error>
       )}
     </Container>

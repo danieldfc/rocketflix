@@ -5,18 +5,18 @@ export const Container = styled.button`
   border-radius: 4px;
   padding: 8px;
   margin-top: 36px;
-  background: #9074ee;
-  color: #fff;
+  background: var(--purple-color);
+  color: var(--white-color);
   font-weight: bold;
   font-size: 16px;
-  border: 1px solid #9074ee;
+  border: 1px solid var(--purple-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   transition: all 0.5s;
 
   &:hover {
-    background: #fff;
-    color: #9074ee;
-    border: 1px solid #fff;
+    background: var(--white-color);
+    color: var(--purple-color);
+    border: 1px solid var(--white-color);
   }
 `;
