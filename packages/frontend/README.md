@@ -1,103 +1,56 @@
-# :construction: Backend
+# :cookie: Frontend
 
-Será responsável de entregar rotas de acesso ao frontend, e se caso já foi desenvolvido, não esquenta, este repositório é público e sempre precisa de melhorias, com certeza é uma boa você estar visualizando de forma geral, para poder entender e saber onde pode melhorar.
+Será responsável para mostrar de maneira visível ao usuário, dados que vem do backend. Logo é necessário estar totalmente seguro, para que não possa mostrar dados senvíveis do usuário.
 
 ## :scroll: Tabela de conteúdo
 
-- [Insomnia](#pushpin-insomnia)
 - [Executar](#hammer-executar)
 - [Rotas](#vertical_traffic_light-rotas)
-- <a href="../../README.md">Voltar para o README principal</a>
+- <a href="../README.md">Voltar para o principal</a>
 
 ---
 
-## :pushpin: Insomnia
-
-Você pode utilizar o insomnia para testar as rotas da aplicação, clicando no botão abaixo:
-
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rocketflix&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdanieldfc%2Frocketflix%2Fmaster%2Fexport.json)
-
 ## :hammer: Executar
+
+Dando um introdutório e sabendo o que cada coisa faz e como gerenciar os seus arquivos, aqui você vai partir para o desenvolvimento onde encontrará comandos e códigos, que você poderá usar.
 
 Inicialmente você poderá usar os seguintes comandos para usar na aplicação, onde são gerenciados através do **package.json** na propriedade `scripts`:
 
-- **dev:server** - Para quando querer que o servidor fique ouvindo as alterações e seja restartado.
-- **start** - Para que o servidor seja iniciado uma vez.
-- **test** - Para caso você esteja realizando testes para a aplicação.
+- **yarn start** - Para que seja inicializado.
 
-O projeto está sendo utilizado o docker para melhor gerencia-lo, caso já tenha o docker instalado, aqui uma linha de comando para te ajudar:
 
-```shell
-$ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+Quando você quiser utilizar recursos da API, então você precisará estar com o seu banco de dados local rodando e a aplicação `backend`, se estiver utilizando o docker e o nome do seu banco for `database`, tenho um comando para facilitar, mas caso for outro nome do container é só modificar:
+
+```sh
+$ docker start database && cd ../backend && yarn dev:server
 ```
 
-E antes de inicializar o container será preciso indicar algumas configurações feitas por você no arquivo `.env`, este arquivo você criará na pasta `backend` e deverá ser seguido a mesma configuração que está no arquivo de exemplo: `.env.example`. Lembrando que o arquivo `.env` não poderá entrar neste repositório online, para manter os dados sensíveis da aplicação somente local.
-
-Voltando para o projeto, crie o seu database, referenciando no `.env`. Logo depois, você poderá migrar as tabelas para o seu database local, assim:
-
-```shell
-$ yarn sequelize db:migrate
-```
-
-Agora com tudo configurado, você poderá inicializar o ambiente de desenvolvimento e execultando:
-
-```shell
-$ yarn dev:server
-```
+Agora com o docker rodando, você poderá inicializar o desenvolvimento do frontend, seguindo o [layout](https://www.figma.com/file/YrsLKvcqQx2Iq8QdUBqJbS/Rocketflix?node-id=2%3A2) que ainda está sendo desenvolvido, caso queira criar junto conosco, *faça as honras*.
 
 ---
 
 ## :vertical_traffic_light: Rotas
 
-Agora,será mostrado para você as rotas que serão e que já foram feitas neste projeto, peço para que todos que sentirem a necessidade de estar modificando ou incluindo alguma rota, peço para que assim possa documentar.
+Assim como no backend, será mostrado a navegação entre rotas. Então, de forma bem breve essas são as rotas que terão no projeto `frontend`.
 
-  - [x] `POST http://localhost:3333/users` - Cria um novo usuário
-
-  - [x] `POST http://localhost:3333/sessions` - Cria uma nova sessão para o usuário
+  - [ ] `http://localhost:3000/` - Login do usuário.
+  - [ ] `http://localhost:3000/register` - Registrar um novo usuário.
 
   **Rotas que precisa estar autenticado**
 
-  - :person_with_blond_hair: Users
+  - [ ] `http://localhost:3000/dashboard` - Aqui é onde terá os vídeos listados aleatoriamente, ou seja, o usuário visualizará todos os vídeos independente da tag, com alguma paginação, logo ele poderá adicionar. É bom colocar a lista de todas as tags, para o usuário poder ver separadamente cada uma delas. É importante ressaltar, que será implementado notificações, então terá que ter um botão em algum local, para que possa fornecer esses dados.
 
-    - [x] `PUT http://localhost:3333/users` - Atualiza o usuário logado
+  - [ ] `http://localhost:3000/account` - Aqui é a página do usuário, caso ele queira modificar seus dados.
 
-  - :framed_picture: Files
+  - :clapper: Videos
+    - [ ] `http://localhost:3000/journey/videos` - Visualizar todos os vídeos dos mais recentes, aos mais antigos.
 
-    - [x] `POST http://localhost:3333/files` - Inclue arquivos de imagem para avatar e vídeos
-
-  - :movie_camera: Videos
-
-    - [x] `GET http://localhost:3333/videos` - Lista todos os vídeos
-
-    - [ ] `GET http://localhost:3333/videos/:id` - Lista um único vídeo
-
-    - [x] `POST http://localhost:3333/videos` - Cria um vídeo
-
-    - [x] `PUT http://localhost:3333/videos/:id` - Atualiza um vídeo
-
-    - [x] `DELETE http://localhost:3333/videos/:id` - Deleta um vídeo
-
-  - :memo: Tags
-
-    - [ ] `GET http://localhost:3333/tags` - Lista todas as tags
-
-    - [ ] `GET http://localhost:3333/tags/:title_tag/videos` - Lista vídeos daquela tag
-
-    - [ ] `POST http://localhost:3333/tags` - Cria tag
-
-    - [ ] `PUT http://localhost:3333/tags/:id` - Atualiza uma tag
-
-    - [ ] `DELETE http://localhost:3333/tags/:id` - Deleta uma tag
-
-  - :pushpin: Notificação
-
-    - [ ] `GET http://localhost:3333/notifications` - Lista notificações
-
-    - [ ] `PUT http://localhost:3333/notifications/:id` - Atualiza para lido uma notificação
+  - :pencil: Tags
+    - [ ] `http://localhost:3000/journey/:nameTag/videos` - Listar vídeos dessa tag
+    - [ ] `http://localhost:3000/journey/:nameTag/videos/:titleVideo` - Exibe um vídeo
 
 ---
 
 **Agora é sair codando :rocket:**
 
 > Se você sentir a necessidade, ou queira modificar este arquivo de `README.md`, você poderá fazer isso caso seja uma boa forma de ser documentado. Presumo que você possa ser muito útil para nos ajudar a deixar ainda mais legível essa documentação para outros desenvolvedores.
-

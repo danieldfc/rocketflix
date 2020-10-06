@@ -5,8 +5,8 @@ Será responsável de entregar rotas de acesso ao frontend, e se caso já foi de
 ## :scroll: Tabela de conteúdo
 
 - [Insomnia](#pushpin-insomnia)
-- [Rotas](#vertical_traffic_light-rotas)
 - [Executar](#hammer-executar)
+- [Rotas](#vertical_traffic_light-rotas)
 - <a href="../../README.md">Voltar para o README principal</a>
 
 ---
@@ -16,6 +16,36 @@ Será responsável de entregar rotas de acesso ao frontend, e se caso já foi de
 Você pode utilizar o [insomnia](https://insomnia.rest) para testar as rotas da aplicação, clicando no botão abaixo:
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Rocketflix&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdanieldfc%2Frocketflix%2Fmaster%2Fexport.json)
+
+---
+
+## :hammer: Executar
+
+Inicialmente você poderá usar os seguintes comandos para usar na aplicação, onde são gerenciados através do **package.json** na propriedade `scripts`:
+
+- **yarn dev:server** - Para quando querer que o servidor fique ouvindo as alterações e seja restartado.
+- **yarn start** - Para que o servidor seja iniciado uma vez.
+- **yarn test** - Para caso você esteja realizando testes para a aplicação.
+
+O projeto está sendo utilizado o docker para melhor gerencia-lo, aqui uma linha de comando para te ajudar:
+
+```shell
+$ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+E antes de inicializar o container será preciso indicar algumas configurações feitas por você no arquivo `.env`, este arquivo você criará na pasta `backend` e deverá ser seguido a mesma configuração que está no arquivo de exemplo: `.env.example`. Lembrando que o arquivo `.env` não poderá entrar neste repositório online, para manter os dados sensíveis da aplicação somente local.
+
+Voltando para o projeto, crie o seu database, referenciando no `.env`. Logo depois, você poderá migrar suas tabelas para o seu banco de dados, assim:
+
+```shell
+$ yarn sequelize db:migrate
+```
+
+Agora com tudo configurado, você poderá inicializar o desenvolvimento e rodar o servidor localmente, executando:
+
+```shell
+$ yarn dev:server
+```
 
 ---
 
@@ -66,36 +96,6 @@ Agora,será mostrado para você as rotas que serão e que já foram feitas neste
     - [ ] `GET http://localhost:3333/notifications` - Lista notificações
 
     - [ ] `PUT http://localhost:3333/notifications/:id` - Atualiza para lido uma notificação
-
----
-
-## :hammer: Executar
-
-Inicialmente você poderá usar os seguintes comandos para usar na aplicação, onde são gerenciados através do **package.json** na propriedade `scripts`:
-
-- **yarn dev:server** - Para quando querer que o servidor fique ouvindo as alterações e seja restartado.
-- **yarn start** - Para que o servidor seja iniciado uma vez.
-- **yarn test** - Para caso você esteja realizando testes para a aplicação.
-
-O projeto está sendo utilizado o docker para melhor gerencia-lo, aqui uma linha de comando para te ajudar:
-
-```shell
-$ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-```
-
-E antes de inicializar o container será preciso indicar algumas configurações feitas por você no arquivo `.env`, este arquivo você criará na pasta `backend` e deverá ser seguido a mesma configuração que está no arquivo de exemplo: `.env.example`. Lembrando que o arquivo `.env` não poderá entrar neste repositório online, para manter os dados sensíveis da aplicação somente local.
-
-Voltando para o projeto, crie o seu database, referenciando no `.env`. Logo depois, você poderá migrar suas tabelas para o seu banco de dados, assim:
-
-```shell
-$ yarn sequelize db:migrate
-```
-
-Agora com tudo configurado, você poderá inicializar o desenvolvimento e rodar o servidor localmente, executando:
-
-```shell
-$ yarn dev:server
-```
 
 ---
 
