@@ -17,7 +17,8 @@ Dando um introdutório e sabendo o que cada coisa faz e como gerenciar os seus a
 Inicialmente você poderá usar os seguintes comandos para usar na aplicação, onde são gerenciados através do **package.json** na propriedade `scripts`:
 
 - **yarn start** - Para que seja inicializado.
-
+- **yarn build** - Para criar a build da aplicação.
+- **yarn test** - Para que seja testado alguma funcionalidade (inicialmente, ão pensamos em criar testes para o frontend, então, caso seja uma funcionalidade bem mais específica, fique a vontade para testar :) ).
 
 Quando você quiser utilizar recursos da API, então você precisará estar com o seu banco de dados local rodando e a aplicação `backend`, se estiver utilizando o docker e o nome do seu banco for `database`, tenho um comando para facilitar, mas caso for outro nome do container é só modificar:
 
