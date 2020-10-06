@@ -74,12 +74,14 @@ Contribuições são o que fazem a comunidade open source um lugar incrível par
 1. Faça um Fork do projeto
 2. Crie uma Branch para sua Feature (`git checkout -b feature/FeatureIncrivel`)
 3. Adicione suas mudanças (`git add .`)
-4. Comite suas mudanças (`git commit -m 'Adicionando uma Feature incrível!`)
+4. Comite suas mudanças (`git commit`)
 5. Faça o Push da Branch (`git push origin feature/FeatureIncrivel`)
 6. Abra uma Pull Request
 
-[Para mais, veja também nossa wiki clicando aqui!](https://github.com/DanielDavidDev/rocketflix/wiki)
+[Para mais, veja também nossa wiki clicando aqui!](https://github.com/danieldfc/rocketflix/wiki)
 
 # :clipboard: Licença
 
 MIT
+
+> Created by Daniel Felizardo & contributors :purple_heart::rocket:
