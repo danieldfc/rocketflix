@@ -28,7 +28,7 @@ export default function Header() {
         <header>
           <img src={Logo} alt="Rocketflix" />
           <nav>
-            <Link to="/">HOME</Link>
+            <Link to="/home">HOME</Link>
             <Link to="/">COMUNIDADE</Link>
             <Link to="/">CONHEÇA</Link>
 
