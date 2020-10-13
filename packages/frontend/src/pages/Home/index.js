@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
+import SynopsePanel from '../../components/Shimmer/SynopsePanel';
 import Synopsis from '../../components/Synopsis';
 
-import { RFHomeContainer } from './styles';
+import { Container } from './styles';
 
 const video = {
   title: 'CODE/DROPS #25',
@@ -18,10 +19,18 @@ const video = {
 };
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-    <RFHomeContainer>
+    <Container>
       <Header />
-      <Synopsis video={video} />
-    </RFHomeContainer>
+      {isLoading ? <SynopsePanel /> : <Synopsis video={video} />}
+    </Container>
   );
 }

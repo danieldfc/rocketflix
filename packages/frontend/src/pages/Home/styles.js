@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const RFHomeContainer = styled.div`
+export const Container = styled.div`
   margin-left: 80px;
 `;

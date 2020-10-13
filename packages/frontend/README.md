@@ -26,7 +26,7 @@ Quando você quiser utilizar recursos da API, então você precisará estar com 
 $ docker start database && cd ../backend && yarn dev:server
 ```
 
-Agora com o docker rodando, você poderá inicializar o desenvolvimento do frontend, seguindo o [layout](https://www.figma.com/file/YrsLKvcqQx2Iq8QdUBqJbS/Rocketflix?node-id=2%3A2) que ainda está sendo desenvolvido, caso queira criar junto conosco, *faça as honras*.
+Agora com o docker rodando, você poderá inicializar o desenvolvimento do frontend, seguindo o [layout](https://www.figma.com/file/frddCP6g2InXFPU4w2LSxC/F%C3%B3rum?node-id=0%3A1) que ainda está sendo desenvolvido, caso queira criar junto conosco, *faça as honras*. Peça a permissão, do administrador `danieldfc`, para que seja dado o acesso.
 
 ---
 
